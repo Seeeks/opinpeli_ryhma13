@@ -3,6 +3,7 @@ Ryhmän 13 oppimispeli Web-projekti-kurssia varten
 Ryhmän jäsenet:
 - Ilona Ward (käyttäjänimi Seeeks)
 -
+- Timo Nguyen (käyttäjänimi timonguyen)
   
 
 Aiheena on köksä (kotitalous)
