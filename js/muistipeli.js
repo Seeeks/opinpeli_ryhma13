@@ -35,7 +35,7 @@ const ostos_vaihtoehdot = [
 ]
 let pystysuuntainenvenytys = 1
 let muistilista = ""
-var aikaa_jaljella = 5
+var aikaa_jaljella = 20
 
 ctx.font = "16px Arial"
 ctx.fillStyle = "#052b69"
@@ -82,7 +82,7 @@ function naytaCountdown(i) {
 function kaynnista() {
     muistilista = arvoMuistilista()
     
-    aikaa_jaljella = 10
+    aikaa_jaljella = 20
 
     naytaCountdown(aikaa_jaljella)
 
@@ -112,7 +112,7 @@ function arvoMuistilista() {
 lisaaAikaa.addEventListener("click", () => {
     if (aikaa_jaljella > 0) {
         clearInterval(timer)
-        aikaa_jaljella = 10
+        aikaa_jaljella = 20
         naytaCountdown(aikaa_jaljella)
         timer = setInterval(() => {
             aikaa_jaljella--

@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFB41F;
+    color: #301200;
+}
+
+nav {
+    background-color: #FF5D00;
+    color: #fff;
+}
+
+.navbar-brand, .nav-link {
+    color: #fff;
+}
+
+footer {
+    background-color: #4d5b5e;
+    color: #fff;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #5db4c7;
+    color: #000c18;
+}
+
+.btn-secondary {
+    background-color: #4490a3;
+    color: #fff;
+}
