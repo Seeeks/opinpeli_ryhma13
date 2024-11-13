@@ -5,6 +5,7 @@ Ryhmän jäsenet:
 - Juuso Pohjola (käyttäjänimi JuusoPo)
 - Timo Nguyen (käyttäjänimi timonguyen)
 - Arttu Vartiainen(käyttäjänimi Vartsu245)
+- Jenny Haapamäki (käyttäjänimi jennyhaapa)
 
 Aiheena on köksä (kotitalous)
 
