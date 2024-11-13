@@ -2,7 +2,7 @@ Ryhmän 13 oppimispeli Web-projekti-kurssia varten
 
 Ryhmän jäsenet:
 - Ilona Ward (käyttäjänimi Seeeks)
--
+- Juuso Pohjola (käyttäjänimi JuusoPo)
 - Timo Nguyen (käyttäjänimi timonguyen)
   
 
