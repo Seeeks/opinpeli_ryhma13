@@ -4,7 +4,7 @@ Ryhmän jäsenet:
 - Ilona Ward (käyttäjänimi Seeeks)
 - Juuso Pohjola (käyttäjänimi JuusoPo)
 - Timo Nguyen (käyttäjänimi timonguyen)
-  
+- Arttu Vartiainen(käyttäjänimi Vartsu245)
 
 Aiheena on köksä (kotitalous)
 
