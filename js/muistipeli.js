@@ -98,6 +98,8 @@ function kaynnista() {
     
     aikaa_jaljella = 20
 
+    lisaaAikaa.classList.remove("d-none")
+
     naytaCountdown(aikaa_jaljella)//tämä kutsuu myös näytä teksti normaalisti
 
     if (timer) {
@@ -116,7 +118,7 @@ function kaynnista() {
         }
     }, 1000)
 
-    
+    aloitaAlusta.textContent = "Aloita alusta"
 }
 
 function lisaaPelikortit() {
@@ -130,6 +132,8 @@ function lisaaPelikortit() {
         muistipeli.appendChild(div)
         div.addEventListener("click", kortinKlikkaus)
     }
+
+    displayStatus()
 }
 
 function kortinKlikkaus() {
@@ -153,6 +157,8 @@ function kortinKlikkaus() {
             nappulat.forEach(nappula => {
                 this.removeChild(nappula)
             })
+
+            displayStatus()
         })
         nappula_ei.addEventListener("click", (e) => {
             this.classList.remove("fokusoitu")
@@ -164,6 +170,8 @@ function kortinKlikkaus() {
             nappulat.forEach(nappula => {
                 this.removeChild(nappula)
             })
+
+            displayStatus()
         })
     }
     else {
@@ -174,6 +182,16 @@ function kortinKlikkaus() {
     }
 }
 
+function displayStatus() {
+    const lajiteltu = korttejaLajiteltu()
+    if (lajiteltu===koko_lista.length) {
+        tarkista.classList.remove("disabled")
+    }
+
+    const statusDisplay = document.getElementById("statusDisplay")
+    statusDisplay.textContent = `Korteista lajiteltu: ${lajiteltu}/${koko_lista.length}`
+}
+
 function arvoMuistilista() {
     //Valitaan 10 satunnaista vaihtoehtoa listalta
     //Lähde: https://stackoverflow.com/questions/19269545/how-to-get-a-number-of-random-elements-from-an-array
@@ -181,6 +199,17 @@ function arvoMuistilista() {
     koko_lista = satunnaistettuLista.slice(0, kokonaiskoko)//Tämä sisältää myös vääriä vaihtoehtoja
     koko_lista = koko_lista.sort(() => 0.5 - Math.random())//Satunnaistetaan uudelleen
     return satunnaistettuLista.slice(0, arvottava_koko)//palautetaan 8 kohdan ostoslista
+}
+
+function korttejaLajiteltu() {
+    const kortit = muistipeli.querySelectorAll(".pelikortti")
+    let lajiteltuLaskuri = 0
+    for (let i = 0; i < kortit.length; i++) {
+        if (kortit[i].classList.contains("on-listalla") || kortit[i].classList.contains("ei-listalla")) {
+            lajiteltuLaskuri++
+        }
+    }
+    return lajiteltuLaskuri
 }
 
 function tarkistaKortit() {
@@ -251,6 +280,7 @@ aloitaAlusta.addEventListener("click", () => {
     muistilista = []
     koko_lista = []
     lisaaAikaa.classList.remove("d-none")
+    tarkista.classList.add("disabled")
 
     kaynnista()
 })
@@ -268,7 +298,7 @@ tarkista.addEventListener("click", () => {
     ctx.save()
     ctx.font = "16px Arial"
     ctx.fillStyle = "#052b69"
-    ctx.fillText("Oikeita: " + tulos.oikeita, 10, 20)
-    ctx.fillText("Vääriä: " + tulos.vaaria, 10, 40)
+    ctx.fillText("Oikein: " + tulos.oikeita, 10, 20)
+    ctx.fillText("Väärin: " + tulos.vaaria, 10, 40)
     ctx.restore()
 })
