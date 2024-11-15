@@ -5,6 +5,7 @@ const WRONG_ANSWER = "Vastauksesi on väärin!";
 const ANSWER_ERROR = "Valitse vastaus ennen tarkistusta!";
 
 function question1() {
+    
     // Kysymyksen vaihtoehdot ja oikea vastaus
     let result = document.getElementById("answer-result1");
     let firstAnswer = document.getElementById("select1.1");
