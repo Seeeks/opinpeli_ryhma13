@@ -48,16 +48,16 @@
             <h1 class="visa-header heading-primary">Keittiöväline tunnistus</h1>
             <p>Tässä harjoituksessa sinun tulee tunnistaa keittiövälineet.</p>
             <p>Kysymyksiä on kaikkiaan 5.</p>
-            </div>
+        </div>
 
-            <div class="visa-grid container">
-                <div class="visa-content">
-                    <div class="visa-question">
-                        <div class="question-title">
-                            <u>Kysymys 1</u>
-                        </div>
-                        <div class="question-img-container">
-                        <img src="" />
+        <div class="visa-grid container">
+            <div class="visa-content">
+                <div class="visa-question">
+                    <div class="question-title">
+                        <u>Kysymys 1</u>
+                    </div>
+                    <div class="question-img-container">
+                        <img src="" alt="1. väline" />
                     </div>
                     <div>
                         <strong>Mikä keittiöväline kuvassa on?</strong>
@@ -98,6 +98,199 @@
                     </div>
                 </div>
             </div>
+
+            <div class="visa-content">
+                <div class="visa-question">
+                    <div class="question-title">
+                        <u>Kysymys 2</u>
+                    </div>
+                    <div class="question-img-container">
+                        <img src="" alt="2. väline" />
+                    </div>
+                    <div>
+                        <strong>Mikä keittiöväline kuvassa on?</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visa-answer-options">
+                <div id="answer-buttons" class="button-grid">
+                    <div class="row">
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select2.1" name="second-select" value="answer-1" />
+                            <label id="correct-second-label" for="select2.1">Veitsi</label>
+                        </div>
+
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select2.2" name="second-select" value="answer-2" />
+                            <label class="second-labels" for="select2.2">Vispilä</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select2.3" name="second-select" value="answer-3" />
+                            <label class="second-labels" for="select2.3">Siivilä</label>
+                        </div>
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select2.4" name="second-select" value="answer-4" />
+                            <label class="second-labels" for="select2.4">Leikkuulauta</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="answer-result">
+                <div class="check-div">
+                    <button id="check-btn2" class="check-btn" onclick="question2()">Tarkista</button>
+                    <div class="id-answer" id="answer-result2"></div>
+                </div>
+            </div>
+
+            <div class="visa-content">
+                <div class="visa-question">
+                    <div class="question-title">
+                        <u>Kysymys 3</u>
+                    </div>
+                    <div class="question-img-container">
+                        <img src="" alt="3. lintu" />
+                    </div>
+                    <div>
+                        <strong>Mikä keittiöväline kuvassa on?</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visa-answer-options">
+                <div id="answer-buttons" class="button-grid">
+                    <div class="row">
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select3.1" name="third-select" value="answer-1" />
+                            <label class="third-labels" for="select3.1">Raastin</label>
+                        </div>
+
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select3.2" name="third-select" value="answer-2" />
+                            <label class="third-labels" for="select3.2">Savustin</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select3.3" name="third-select" value="answer-3" />
+                            <label class="third-labels" for="select3.3">Perunankuorija</label>
+                        </div>
+
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select3.4" name="third-select" value="answer-4" />
+                            <label id="correct-third-label" for="select3.4">Leikkuulauta</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="answer-result">
+                    <div class="check-div">
+                        <button id="check-btn3" class="check-btn" onclick="question3()">Tarkista</button>
+                        <div class="id-answer" id="answer-result3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visa-content">
+                <div class="visa-question">
+                    <div class="question-title">
+                        <u>Kysymys 4</u>
+                    </div>
+                    <div class="question-img-container">
+                        <img src="" alt="4. väline" />
+                    </div>
+                    <div>
+                        <strong>Mikä keittiö väline kuvassa on?</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visa-answer-options">
+                <div id="answer-buttons" class="button-grid">
+                    <div class="row">
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select4.1" name="fourth-select" value="answer-1" />
+                            <label class="fourth-labels" for="select4.1">Keittiövaaka</label>
+                        </div>
+
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select4.2" name="fourth-select" value="answer-2" />
+                            <label id="correct-fourth-label" for="select4.2">Kauha</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select4.3" name="fourth-select" value="answer-3" />
+                            <label class="fourth-labels" for="select4.3">Mitta-astia</label>
+                        </div>
+
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select4.4" name="fourth-select" value="answer-4" />
+                            <label class="fourth-labels" for="select4.4">Pastakone</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="answer-result">
+                    <div class="check-div">
+                        <button id="check-btn4" class="check-btn" onclick="question4()">Tarkista</button>
+                        <div class="id-answer" id="answer-result4"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visa-content">
+                <div class="visa-question">
+                    <div class="question-title">
+                        <u>Kysymys 5</u>
+                    </div>
+
+                    <div class="question-img-container">
+                        <img src="" alt="5. väline" />
+                    </div>
+                    <div class="question">
+                        <strong>Mikä keittiö väline kuvassa on?</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visa-answer-options">
+                <div id="answer-buttons" class="button-grid">
+                    <div class="row">
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select5.1" name="fifth-select" value="answer-1" />
+                            <label class="fifth-labels" for="select5.1">Juustohöylä</label>
+                        </div>
+
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select5.2" name="fifth-select" value="answer-2" />
+                            <label class="fifth-labels" for="select5.2">Grillipihdit</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select5.3" name="fifth-select" value="answer-3" />
+                            <label class="fifth-labels" for="select5.3">Sihti</label>
+                        </div>
+
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select5.4" name="fifth-select" value="anwer-4" />
+                            <label id="correct-fifth-label" for="select5.4">Kaulin</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="answer-result">
+                    <div class="check-div">
+                        <button id="check-btn5" class="check-btn" onclick="question5()">Tarkista</button>
+                        <div class="id-answer" id="answer-result5"></div>
+                    </div>
+                </div>
+            </div>
+
+          
+
+    </div>
 
 
 
