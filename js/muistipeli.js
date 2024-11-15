@@ -2,7 +2,9 @@ const ilona_canvas = document.getElementById("ilona_canvas");
 const ctx = ilona_canvas.getContext("2d");
 const muistipeli = document.getElementById("muistipeli");
 const lisaaAikaa = document.getElementById("lisaaAikaa");
+const aloitaAlusta = document.getElementById("aloitaAlusta");
 let timer;//tätä ei määritellä alussa
+let animationId = null
 const ostos_vaihtoehdot = [
     "kevytmaito",
 "banaanit",
@@ -68,7 +70,14 @@ function valutaTeksti() {
     pystysuuntainenvenytys = pystysuuntainenvenytys + 0.01
 
     ctx.restore()
-    window.requestAnimationFrame(valutaTeksti)
+    animationId = window.requestAnimationFrame(valutaTeksti)
+}
+
+function lopetaValutus() {
+    if (animationId) {
+        window.cancelAnimationFrame(animationId)
+        animationId = null
+    }
 }
 
 function naytaCountdown(i) {
@@ -76,7 +85,7 @@ function naytaCountdown(i) {
     ctx.save()
     ctx.font = "30px Arial"
     ctx.fillStyle = "#052b69"
-    ctx.fillText(i, ilona_canvas.width - 30, 40)
+    ctx.fillText(i, ilona_canvas.width - 50, 40)
 
     naytaTekstiNormaalisti()
 
@@ -88,7 +97,7 @@ function kaynnista() {
     
     aikaa_jaljella = 20
 
-    naytaCountdown(aikaa_jaljella)
+    naytaCountdown(aikaa_jaljella)//tämä kutsuu myös näytä teksti normaalisti
 
     if (timer) {
         clearInterval(timer)
@@ -142,5 +151,17 @@ lisaaAikaa.addEventListener("click", () => {
     }
 })
 
+aloitaAlusta.addEventListener("click", () => {
+    muistipeli.innerHTML = ""
+    if (timer) {
+        clearInterval(timer)
+        timer = null
+        aikaa_jaljella = 20
+        lopetaValutus()
+    }
+    muistilista = []
+    koko_lista = []
+    lisaaAikaa.classList.remove("d-none")
 
-kaynnista()
+    kaynnista()
+})
