@@ -1,0 +1,12 @@
+.pelikortti {
+    background-color: aliceblue;
+    color: black;
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}

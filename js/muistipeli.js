@@ -1,5 +1,6 @@
 const ilona_canvas = document.getElementById("ilona_canvas");
 const ctx = ilona_canvas.getContext("2d");
+const muistipeli = document.getElementById("muistipeli");
 const lisaaAikaa = document.getElementById("lisaaAikaa");
 let timer;//tätä ei määritellä alussa
 const ostos_vaihtoehdot = [
@@ -34,8 +35,11 @@ const ostos_vaihtoehdot = [
 "voi"
 ]
 let pystysuuntainenvenytys = 1
-let muistilista = ""
+let muistilista;
+let koko_lista;
 var aikaa_jaljella = 20
+const arvottava_koko = 8
+const kokonaiskoko = 16
 
 ctx.font = "16px Arial"
 ctx.fillStyle = "#052b69"
@@ -96,16 +100,27 @@ function kaynnista() {
         naytaCountdown(aikaa_jaljella)
         if (aikaa_jaljella < 0) {
             clearInterval(timer)
+            lisaaAikaa.classList.add("d-none")
             window.requestAnimationFrame(valutaTeksti)
         }
     }, 1000)
+
+    for (let i = 0; i < kokonaiskoko; i++) {
+        const rivi = koko_lista[i]
+        const div = document.createElement("div")
+        div.textContent = rivi
+        div.classList.add("pelikortti")
+        muistipeli.appendChild(div)
+    }
 }
 
 function arvoMuistilista() {
     //Valitaan 10 satunnaista vaihtoehtoa listalta
     //Lähde: https://stackoverflow.com/questions/19269545/how-to-get-a-number-of-random-elements-from-an-array
     const satunnaistettuLista = ostos_vaihtoehdot.sort(() => 0.5 - Math.random())
-    return satunnaistettuLista.slice(0, 10)
+    koko_lista = satunnaistettuLista.slice(0, kokonaiskoko)//Tämä sisältää myös vääriä vaihtoehtoja
+    koko_lista = koko_lista.sort(() => 0.5 - Math.random())//Satunnaistetaan uudelleen
+    return satunnaistettuLista.slice(0, arvottava_koko)//palautetaan 8 kohdan ostoslista
 }
 
 
@@ -120,6 +135,7 @@ lisaaAikaa.addEventListener("click", () => {
 
             if (aikaa_jaljella < 0) {
                 clearInterval(timer)
+                lisaaAikaa.classList.add("d-none")
                 window.requestAnimationFrame(valutaTeksti)
             }
         }, 1000)
