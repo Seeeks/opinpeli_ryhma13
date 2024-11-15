@@ -17,3 +17,4 @@ function question1() {
     result.innerHTML = "";
 }
 
+
