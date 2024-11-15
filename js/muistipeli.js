@@ -111,15 +111,65 @@ function kaynnista() {
             clearInterval(timer)
             lisaaAikaa.classList.add("d-none")
             window.requestAnimationFrame(valutaTeksti)
+            lisaaPelikortit()
         }
     }, 1000)
 
+    
+}
+
+function lisaaPelikortit() {
     for (let i = 0; i < kokonaiskoko; i++) {
         const rivi = koko_lista[i]
         const div = document.createElement("div")
-        div.textContent = rivi
         div.classList.add("pelikortti")
+        const span = document.createElement("span")
+        span.textContent = rivi
+        div.appendChild(span)
         muistipeli.appendChild(div)
+        div.addEventListener("click", kortinKlikkaus)
+    }
+}
+
+function kortinKlikkaus() {
+    this.classList.toggle("fokusoitu")
+    if (this.classList.contains("fokusoitu")) {
+        const nappula_on = document.createElement("button")
+        const nappula_ei = document.createElement("button")
+        nappula_on.textContent = "On"
+        nappula_ei.textContent = "Ei"
+        nappula_on.classList.add("btn", "btn-primary")
+        nappula_ei.classList.add("btn", "btn-danger")
+        this.appendChild(nappula_on)
+        this.appendChild(nappula_ei)
+        nappula_on.addEventListener("click", (e) => {
+            this.classList.remove("fokusoitu")
+            this.classList.remove("ei-listalla")
+            this.classList.add("on-listalla")
+            e.stopPropagation()
+
+            const nappulat = this.querySelectorAll("button")
+            nappulat.forEach(nappula => {
+                this.removeChild(nappula)
+            })
+        })
+        nappula_ei.addEventListener("click", (e) => {
+            this.classList.remove("fokusoitu")
+            this.classList.remove("on-listalla")
+            this.classList.add("ei-listalla")
+            e.stopPropagation()
+
+            const nappulat = this.querySelectorAll("button")
+            nappulat.forEach(nappula => {
+                this.removeChild(nappula)
+            })
+        })
+    }
+    else {
+        const nappulat = this.querySelectorAll("button")
+        nappulat.forEach(nappula => {
+            this.removeChild(nappula)
+        })
     }
 }
 

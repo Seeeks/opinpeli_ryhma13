@@ -6,8 +6,27 @@
     margin: 5px;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 1.25rem;
     text-align: center;
+}
+
+.fokusoitu {
+    background-color: #FFB41F;
+    color: #301200;
+    border: 2px solid #FF5D00;
+}
+
+.on-listalla {
+    background-color: #a7fff5;
+    color: #301200;
+    border: 2px solid #1adfb7;
+}
+
+.ei-listalla {
+    background-color: #e66440;
+    color: #f1ebe7;
+    border: 2px solid #c9320c;
 }
