@@ -2,9 +2,10 @@ Ryhmän 13 oppimispeli Web-projekti-kurssia varten
 
 Ryhmän jäsenet:
 - Ilona Ward (käyttäjänimi Seeeks)
--
+- Juuso Pohjola (käyttäjänimi JuusoPo)
 - Timo Nguyen (käyttäjänimi timonguyen)
-  
+- Arttu Vartiainen(käyttäjänimi Vartsu245)
+- Jenny Haapamäki (käyttäjänimi jennyhaapa)
 
 Aiheena on köksä (kotitalous)
 
