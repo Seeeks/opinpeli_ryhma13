@@ -2,6 +2,7 @@ const ilona_canvas = document.getElementById("ilona_canvas");
 const ctx = ilona_canvas.getContext("2d");
 const muistipeli = document.getElementById("muistipeli");
 const lisaaAikaa = document.getElementById("lisaaAikaa");
+const tarkista = document.getElementById("tarkista");
 const aloitaAlusta = document.getElementById("aloitaAlusta");
 let timer;//tätä ei määritellä alussa
 let animationId = null
@@ -182,6 +183,44 @@ function arvoMuistilista() {
     return satunnaistettuLista.slice(0, arvottava_koko)//palautetaan 8 kohdan ostoslista
 }
 
+function tarkistaKortit() {
+    const merkitty_on_listalla = muistipeli.querySelectorAll(".on-listalla")
+    const merkitty_ei_listalla = muistipeli.querySelectorAll(".ei-listalla")
+    const on_listalla_koko = merkitty_on_listalla.length
+    const ei_listalla_koko = merkitty_ei_listalla.length
+    let oikeita = 0
+    let vaaria = 0
+
+    for (let i = 0; i < on_listalla_koko; i++) {
+        const kortti = merkitty_on_listalla[i]
+        const span = kortti.querySelector("span")
+        const teksti = span.textContent
+        if (muistilista.includes(teksti)) {
+            oikeita ++
+        }
+        else {
+            vaaria++
+        }
+    }
+
+    for (let i = 0; i < ei_listalla_koko; i++) {
+        const kortti = merkitty_ei_listalla[i]
+        const span = kortti.querySelector("span")
+        const teksti = span.textContent
+        if (muistilista.includes(teksti)) {
+            vaaria++
+        }
+        else {
+            oikeita++
+        }
+    }
+
+    return {
+        oikeita: oikeita,
+        vaaria: vaaria
+    }
+}
+
 
 lisaaAikaa.addEventListener("click", () => {
     if (aikaa_jaljella > 0) {
@@ -214,4 +253,22 @@ aloitaAlusta.addEventListener("click", () => {
     lisaaAikaa.classList.remove("d-none")
 
     kaynnista()
+})
+
+tarkista.addEventListener("click", () => {
+    const tulos = tarkistaKortit()
+
+    if (timer) {
+        clearInterval(timer)
+        timer = null
+        lopetaValutus()
+    }
+
+    ctx.clearRect(0, 0, ilona_canvas.width, ilona_canvas.height)
+    ctx.save()
+    ctx.font = "16px Arial"
+    ctx.fillStyle = "#052b69"
+    ctx.fillText("Oikeita: " + tulos.oikeita, 10, 20)
+    ctx.fillText("Vääriä: " + tulos.vaaria, 10, 40)
+    ctx.restore()
 })
