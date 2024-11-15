@@ -48,6 +48,58 @@
             <h1 class="visa-header heading-primary">Keittiöväline tunnistus</h1>
             <p>Tässä harjoituksessa sinun tulee tunnistaa keittiövälineet.</p>
             <p>Kysymyksiä on kaikkiaan 5.</p>
+            </div>
+
+            <div class="visa-grid container">
+                <div class="visa-content">
+                    <div class="visa-question">
+                        <div class="question-title">
+                            <u>Kysymys 1</u>
+                        </div>
+                        <div class="question-img-container">
+                        <img src="" />
+                    </div>
+                    <div>
+                        <strong>Mikä keittiöväline kuvassa on?</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visa-answer-options">
+                <div id="answer-buttons" class="button-grid">
+                    <div class="row">
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select1.1" name="first-select" value="answer-1" />
+                            <label class="first-labels" for="select1.1">Kauha</label>
+                        </div>
+
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select1.2" name="first-select" value="answer-2" />
+                            <label class="first-labels" for="select1.2">Paistolämpömittari</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select1.3" name="first-select" value="answer-3" />
+                            <label id="correct-first-label" for="select1.3">Paistin pannu</label>
+                        </div>
+
+                        <div class="radio-selection col-6">
+                            <input type="radio" id="select1.4" name="first-select" value="answer-4" />
+                            <label class="first-labels" for="select1.4">Mitta-astia</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="answer-result">
+                    <div class="check-div">
+                        <button id="check-btn1" class="check-btn" onclick="question1()">Tarkista</button>
+                        <div class="id-answer" id="answer-result1"></div>
+                    </div>
+                </div>
+            </div>
+
+
 
     
 
