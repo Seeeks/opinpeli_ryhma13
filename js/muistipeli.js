@@ -7,35 +7,35 @@ const aloitaAlusta = document.getElementById("aloitaAlusta");
 let timer;//tätä ei määritellä alussa
 let animationId = null
 const ostos_vaihtoehdot = [
-    "kevytmaito",
-    "banaanit",
-    "folio",
-    "ilmapallot",
-    "jogurtti",
-    "juustoraaste",
-    "kanan jauheliha",
-    "kaurakerma",
-    "kauramaito",
-    "kuohukerma",
-    "kurkku",
-    "laktoositon maito",
-    "leivinpaperi",
-    "makkara",
-    "munat",
-    "nakit",
-    "naudan jauheliha",
-    "omenat",
-    "raejuusto",
-    "rasvaton maito",
-    "ruokakerma",
-    "ruokaöljy",
-    "sokeri",
-    "suklaa",
-    "suola",
-    "tomaatit",
-    "vegaanijuusto",
-    "vispikerma",
-    "voi"
+    {txt: "kevytmaito", img: "kevytmaito.png"},
+    {txt: "banaanit", img: "banaani.png"},
+    {txt: "folio", img: "folio.png"},
+    {txt: "ilmapallot", img: "ilmapallot.png"},
+    {txt: "jogurtti", img: "jogurtti.png"},
+    {txt: "juustoraaste", img: "juustoraaste.png"},
+    {txt: "kanan jauheliha", img: "kanan_jauheliha.png"},
+    {txt: "kaurakerma", img: "kaurakerma.png"},
+    {txt: "kauramaito", img: "kauramaito.png"},
+    {txt: "kuohukerma", img: "kuohukerma.png"},
+    {txt: "kurkku", img: "kurkku.png"},
+    {txt: "laktoositon maito", img: "laktoositon_maito.png"},
+    {txt: "leivinpaperi", img: "leivinpaperi.png"},
+    {txt: "makkara", img: "makkara.png"},
+    {txt: "munat", img: "munat.png"},
+    {txt: "nakit", img: "nakit.png"},
+    {txt: "naudan jauheliha", img: "naudan_jauheliha.png"},
+    {txt: "omenat", img: "omena.png"},
+    {txt: "raejuusto", img: "raejuusto.png"},
+    {txt: "rasvaton maito", img: "rasvaton_maito.png"},
+    {txt: "ruokakerma", img: "ruokakerma.png"},
+    {txt: "ruokaöljy", img: "ruokaoljy.png"},
+    {txt: "sokeri", img: "sokeri.png"},
+    {txt: "suklaa", img: "suklaa.png"},
+    {txt: "suola", img: "suola.png"},
+    {txt: "tomaatit", img: "tomaatti.png"},
+    {txt: "vegaanijuusto", img: "vegaanijuusto.png"},
+    {txt: "vispikerma", img: "vispikerma.png"},
+    {txt: "voi", img: "voi.png"}
 ]
 let pystysuuntainenvenytys = 1
 let muistilista;
@@ -53,7 +53,7 @@ function naytaTekstiNormaalisti() {
     ctx.fillStyle = "#052b69"
     ctx.scale(1, 1)
     muistilista.forEach((rivi, index) => {
-        ctx.fillText(rivi, 10, (index + 1) * 16)
+        ctx.fillText(rivi.txt, 10, (index + 1) * 16)
     })
     ctx.restore()
 }
@@ -65,7 +65,7 @@ function valutaTeksti() {
     ctx.scale(1, pystysuuntainenvenytys)
 
     muistilista.forEach((rivi, index) => {
-        ctx.fillText(rivi, 10, (index + 1) * 16)
+        ctx.fillText(rivi.txt, 10, (index + 1) * 16)
     })
 
     pystysuuntainenvenytys = pystysuuntainenvenytys + 0.01
@@ -127,7 +127,7 @@ function lisaaPelikortit() {
         const div = document.createElement("div")
         div.classList.add("pelikortti")
         const span = document.createElement("span")
-        span.textContent = rivi
+        span.textContent = rivi.txt
         div.appendChild(span)
         muistipeli.appendChild(div)
         div.addEventListener("click", kortinKlikkaus)
@@ -224,7 +224,8 @@ function tarkistaKortit() {
         const kortti = merkitty_on_listalla[i]
         const span = kortti.querySelector("span")
         const teksti = span.textContent
-        if (muistilista.includes(teksti)) {
+        //some metodi on saatu tekoälyltä korvaamaan includes metodin kun array muutettiin käyttämään sisäisiä objekteja plaintekstin sijaan.
+        if (muistilista.some(item => item.txt === teksti)) {
             oikeita ++
         }
         else {
@@ -236,7 +237,7 @@ function tarkistaKortit() {
         const kortti = merkitty_ei_listalla[i]
         const span = kortti.querySelector("span")
         const teksti = span.textContent
-        if (muistilista.includes(teksti)) {
+        if (muistilista.some(item => item.txt === teksti)) {
             vaaria++
         }
         else {
