@@ -66,3 +66,28 @@ footer a {
     background-image: url("../kuvat/grid-paper-1806470_1280-pixabay.jpg");
     background-repeat: repeat;
 }
+
+.esittely {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 210px;
+}
+
+.ympyra {
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 3px 5px 2px 0px rgba(78, 37, 17, 0.5);
+}
+
+.esittely p {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.esittely img {
+    width: 150px;
+    height: 150px;
+}
