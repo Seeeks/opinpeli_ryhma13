@@ -61,3 +61,8 @@ footer a {
     background-color: #fff;
     transform: rotate(-15deg);
 }
+
+.ruutupaperi-bg {
+    background-image: url("../kuvat/grid-paper-1806470_1280-pixabay.jpg");
+    background-repeat: repeat;
+}

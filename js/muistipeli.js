@@ -49,11 +49,11 @@ ctx.fillStyle = "#052b69"
 
 function naytaTekstiNormaalisti() {
     ctx.save()
-    ctx.font = "16px Arial"
+    ctx.font = "18px Arial"
     ctx.fillStyle = "#052b69"
     ctx.scale(1, 1)
     muistilista.forEach((rivi, index) => {
-        ctx.fillText(rivi.txt, 10, (index + 1) * 16)
+        ctx.fillText(rivi.txt, 20, (index + 1) * 18 + 20)
     })
     ctx.restore()
 }
@@ -65,7 +65,7 @@ function valutaTeksti() {
     ctx.scale(1, pystysuuntainenvenytys)
 
     muistilista.forEach((rivi, index) => {
-        ctx.fillText(rivi.txt, 10, (index + 1) * 16)
+        ctx.fillText(rivi.txt, 20, (index + 1) * 18)
     })
 
     pystysuuntainenvenytys = pystysuuntainenvenytys + 0.01
@@ -128,7 +128,10 @@ function lisaaPelikortit() {
         div.classList.add("pelikortti")
         const span = document.createElement("span")
         span.textContent = rivi.txt
+        const kuva = document.createElement("img")
+        kuva.src = "./kuvat/" + rivi.img
         div.appendChild(span)
+        div.appendChild(kuva)
         muistipeli.appendChild(div)
         div.addEventListener("click", kortinKlikkaus)
     }
@@ -139,24 +142,25 @@ function lisaaPelikortit() {
 function kortinKlikkaus() {
     this.classList.toggle("fokusoitu")
     if (this.classList.contains("fokusoitu")) {
+        const flexrow = document.createElement("div")
+        flexrow.classList.add("flex-row", "nappula-container", "justify-content-center")
         const nappula_on = document.createElement("button")
         const nappula_ei = document.createElement("button")
         nappula_on.textContent = "On"
         nappula_ei.textContent = "Ei"
         nappula_on.classList.add("btn", "btn-primary")
         nappula_ei.classList.add("btn", "btn-danger")
-        this.appendChild(nappula_on)
-        this.appendChild(nappula_ei)
+        this.appendChild(flexrow)
+        flexrow.appendChild(nappula_on)
+        flexrow.appendChild(nappula_ei)
         nappula_on.addEventListener("click", (e) => {
             this.classList.remove("fokusoitu")
             this.classList.remove("ei-listalla")
             this.classList.add("on-listalla")
             e.stopPropagation()
 
-            const nappulat = this.querySelectorAll("button")
-            nappulat.forEach(nappula => {
-                this.removeChild(nappula)
-            })
+            const parentDiv = nappula_on.parentNode
+            parentDiv.remove()
 
             displayStatus()
         })
@@ -166,19 +170,15 @@ function kortinKlikkaus() {
             this.classList.add("ei-listalla")
             e.stopPropagation()
 
-            const nappulat = this.querySelectorAll("button")
-            nappulat.forEach(nappula => {
-                this.removeChild(nappula)
-            })
+            const parentDiv = nappula_ei.parentNode
+            parentDiv.remove()
 
             displayStatus()
         })
     }
     else {
-        const nappulat = this.querySelectorAll("button")
-        nappulat.forEach(nappula => {
-            this.removeChild(nappula)
-        })
+        const row = this.querySelector(".nappula-container")
+        this.removeChild(row)
     }
 }
 
@@ -297,9 +297,9 @@ tarkista.addEventListener("click", () => {
 
     ctx.clearRect(0, 0, ilona_canvas.width, ilona_canvas.height)
     ctx.save()
-    ctx.font = "16px Arial"
+    ctx.font = "18px Arial"
     ctx.fillStyle = "#052b69"
-    ctx.fillText("Oikein: " + tulos.oikeita, 10, 20)
-    ctx.fillText("Väärin: " + tulos.vaaria, 10, 40)
+    ctx.fillText("Oikein: " + tulos.oikeita, 20, 40)
+    ctx.fillText("Väärin: " + tulos.vaaria, 20, 60)
     ctx.restore()
 })
