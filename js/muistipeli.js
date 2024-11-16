@@ -4,6 +4,7 @@ const muistipeli = document.getElementById("muistipeli");
 const lisaaAikaa = document.getElementById("lisaaAikaa");
 const tarkista = document.getElementById("tarkista");
 const aloitaAlusta = document.getElementById("aloitaAlusta");
+const infokupla = document.getElementById("infokupla");
 let timer;//tätä ei määritellä alussa
 let animationId = null
 const ostos_vaihtoehdot = [
@@ -43,6 +44,8 @@ let koko_lista;
 var aikaa_jaljella = 20
 const arvottava_koko = 8
 const kokonaiskoko = 16
+const maksimipisteet = 20
+let tarkistuksia = 0
 
 ctx.font = "16px Arial"
 ctx.fillStyle = "#052b69"
@@ -282,6 +285,8 @@ aloitaAlusta.addEventListener("click", () => {
     koko_lista = []
     lisaaAikaa.classList.remove("d-none")
     tarkista.classList.add("disabled")
+    tarkistuksia = 0
+    infokupla.textContent = "Lue kauppalista ennen kuin se sulaa sateessa. Lajittele tuotteet sen mukaan, olivatko ne listalla vai ei?"
 
     kaynnista()
 })
@@ -295,11 +300,26 @@ tarkista.addEventListener("click", () => {
         lopetaValutus()
     }
 
+    let pisteet = Math.floor(tulos.oikeita * (maksimipisteet-tarkistuksia) / kokonaiskoko)
+
     ctx.clearRect(0, 0, ilona_canvas.width, ilona_canvas.height)
     ctx.save()
     ctx.font = "18px Arial"
     ctx.fillStyle = "#052b69"
     ctx.fillText("Oikein: " + tulos.oikeita, 20, 40)
     ctx.fillText("Väärin: " + tulos.vaaria, 20, 60)
+    ctx.fillText("Pisteet: " + pisteet, 20, 100)
     ctx.restore()
+
+    if (pisteet === maksimipisteet) {
+        infokupla.textContent = "Onneksi olkoon! Sait täydet pisteet!"
+    }
+    else if (pisteet === maksimipisteet-tarkistuksia) {
+        infokupla.textContent = "Sait kaikki oikein, mutta maksimipisteiden saaminen vaatii onnistumista yhdellä tarkistuksella. Voit yrittää onneasi uudestaan tai siirtyä toiselle sivulle."
+    }
+    else infokupla.textContent = "Et saanut kaikkia oikein. Voit korjata vastauksiasi ja tarkistaa uudestaan, mutta varo: Joka kerran kun tarkistat, korkein mahdollinen pistemäärä laskee yhdellä. Uskallatko ottaa riskin?"
+
+    tarkistuksia++
+
+    
 })
