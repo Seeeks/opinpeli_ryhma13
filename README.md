@@ -6,6 +6,7 @@ Ryhmän jäsenet:
 - Timo Nguyen (käyttäjänimi timonguyen)
 - Arttu Vartiainen(käyttäjänimi Vartsu245)
 - Jenny Haapamäki (käyttäjänimi jennyhaapa)
+- Patrik Kamunen (käyttäjänimi patrikkamunen)
 
 Aiheena on köksä (kotitalous)
 
