@@ -52,11 +52,11 @@ ctx.fillStyle = "#052b69"
 
 function naytaTekstiNormaalisti() {
     ctx.save()
-    ctx.font = "18px Arial"
+    ctx.font = "18px OpenDyslexic"
     ctx.fillStyle = "#052b69"
     ctx.scale(1, 1)
     muistilista.forEach((rivi, index) => {
-        ctx.fillText(rivi.txt, 20, (index + 1) * 18 + 20)
+        ctx.fillText(rivi.txt, 20, (index + 1) * 20 + 20)
     })
     ctx.restore()
 }
@@ -304,7 +304,7 @@ tarkista.addEventListener("click", () => {
 
     ctx.clearRect(0, 0, ilona_canvas.width, ilona_canvas.height)
     ctx.save()
-    ctx.font = "18px Arial"
+    ctx.font = "18px OpenDyslexic"
     ctx.fillStyle = "#052b69"
     ctx.fillText("Oikein: " + tulos.oikeita, 20, 40)
     ctx.fillText("Väärin: " + tulos.vaaria, 20, 60)
