@@ -301,6 +301,7 @@ tarkista.addEventListener("click", () => {
     }
 
     let pisteet = Math.floor(tulos.oikeita * (maksimipisteet-tarkistuksia) / kokonaiskoko)
+    tallennaSessionStorageen("muistipelinPisteet", pisteet)//Tämä funktio on määritelty shared.js tiedostossa
 
     ctx.clearRect(0, 0, ilona_canvas.width, ilona_canvas.height)
     ctx.save()
