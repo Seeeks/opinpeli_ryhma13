@@ -2,9 +2,27 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: openDyslexic;
+    src: url(../fontit/OpenDyslexic/OpenDyslexic-Regular.otf);
+}
+
+@font-face {
+    font-family: openDyslexic;
+    src: url(../fontit/OpenDyslexic/OpenDyslexic-Bold.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: openDyslexic;
+    src: url(../fontit/OpenDyslexic/OpenDyslexic-Italic.otf);
+    font-style: italic;
+}
+
 body {
     background-color: #FFB41F;
     color: #301200;
+    font-family: openDyslexic, sans-serif;
 }
 
 nav {
@@ -85,6 +103,7 @@ footer a {
     text-align: center;
     font-weight: bold;
     margin-top: 10px;
+    font-size: 0.9rem;
 }
 
 .esittely img {
