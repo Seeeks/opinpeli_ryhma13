@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Yksikönmuunnospeli</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    
+    <h1>Yksikkömuunnoksia</h1>
+    <div id="pelialusta">
+        <div id="aloitus-ruutu"></div> <!--Pelin aloitus näkymä-->
+            <p>Auta kokki-kania tekemään yksikkömuunnoksia!</p>
+            <button onclick="aloitaPeli()">Aloita</button> <!--Painike joka aktivoi aloitaPeli funktion-->
+        </div>
+
+        <div id="kysymys-ruutu" style="display: none;"> <!--Pelin kysymys näkymä-->
+            <p id="kysymys-teksti"></p>
+            <div id="kysymysalusta"></div>
+            <button onclick="seuraavaKysmys()" id="seuraava-painike" disabled>Seuraava kysymys</button> <!--Painike jolla aktivoidaan seuraavaKysymys funktio-->
+        </div>
+
+        <div id="tulos-ruutu"> <!--Pelin tulos näkymä-->
+            <p id="tulos-teksi"></p>
+            <button onclick="resetoiPeli()">Pelaa uudestaan</button> <!--Painike jolla aktivoidaan resetoiPeli funktio-->
+        </div>
+    </div>
+
+    <script src="./js/yksikkomuunnos.js"></script>
 </body>
 </html>
