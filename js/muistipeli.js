@@ -43,7 +43,7 @@ let muistilista;
 let koko_lista;
 var aikaa_jaljella = 20
 const arvottava_koko = 8
-const kokonaiskoko = 16
+const kokonaiskoko = 20
 const maksimipisteet = 20
 let tarkistuksia = 0
 
@@ -178,6 +178,15 @@ function kortinKlikkaus() {
 
             displayStatus()
         })
+
+        const kaikkiPelikortit = muistipeli.querySelectorAll(".pelikortti")
+        for (let i = 0; i < kaikkiPelikortit.length; i++) {
+            if (kaikkiPelikortit[i] !== this) {
+                kaikkiPelikortit[i].classList.remove("fokusoitu")
+                const row = kaikkiPelikortit[i].querySelector(".nappula-container")
+                if (row) kaikkiPelikortit[i].removeChild(row)
+            }
+        }
     }
     else {
         const row = this.querySelector(".nappula-container")
