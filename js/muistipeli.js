@@ -333,3 +333,26 @@ tarkista.addEventListener("click", () => {
 
     
 })
+
+document.addEventListener("keyup", (event) => {
+    //console.log(event.key)
+    //Tämä funktio huomaa jos käyttäjä painaa PrintScreen-nappia silloin kun tarkistusta ei ole vielä yritetty kertaakaan.
+    //Funktio piilottaa kauppalistan näkyvistä ja korvaa sen tekstillä "Print screen detected". Näin ollen pelaaja ei voi huijata
+    //(ainakaan helposti.)
+    
+    if (event.key === "PrintScreen"&&tarkistuksia==0) {
+        if (timer) {
+            clearInterval(timer)
+        }
+        if (animationId) {
+            lopetaValutus()
+        }
+        ctx.clearRect(0, 0, ilona_canvas.width, ilona_canvas.height)
+        ctx.save()
+        ctx.font = "20px Arial"
+        ctx.fillStyle = "#052b69"
+        ctx.fillText("Print screen detected", 20, 40)
+
+        ctx.restore()
+    }
+})
