@@ -129,6 +129,8 @@ function lisaaPelikortit() {
         const rivi = koko_lista[i]
         const div = document.createElement("div")
         div.classList.add("pelikortti")
+        div.role = "button"
+        div.tabIndex = 0
         const span = document.createElement("span")
         span.textContent = rivi.txt
         const kuva = document.createElement("img")
@@ -137,14 +139,25 @@ function lisaaPelikortit() {
         div.appendChild(kuva)
         muistipeli.appendChild(div)
         div.addEventListener("click", kortinKlikkaus)
+        div.addEventListener("keyup", tarkistaPainettuKey)
     }
 
     displayStatus()
 }
 
+function tarkistaPainettuKey(e) {
+    if (e.key === "Enter") {
+        kortinKlikkausKasittely(e.currentTarget)
+    }
+}
+
 function kortinKlikkaus() {
-    this.classList.toggle("fokusoitu")
-    if (this.classList.contains("fokusoitu")) {
+    kortinKlikkausKasittely(this)
+}
+
+function kortinKlikkausKasittely(kortti) {
+    kortti.classList.toggle("fokusoitu")
+    if (kortti.classList.contains("fokusoitu")) {
         const flexrow = document.createElement("div")
         flexrow.classList.add("flex-row", "nappula-container", "justify-content-center")
         const nappula_on = document.createElement("button")
@@ -153,13 +166,13 @@ function kortinKlikkaus() {
         nappula_ei.textContent = "Ei"
         nappula_on.classList.add("btn", "btn-primary")
         nappula_ei.classList.add("btn", "btn-danger")
-        this.appendChild(flexrow)
+        kortti.appendChild(flexrow)
         flexrow.appendChild(nappula_on)
         flexrow.appendChild(nappula_ei)
         nappula_on.addEventListener("click", (e) => {
-            this.classList.remove("fokusoitu")
-            this.classList.remove("ei-listalla")
-            this.classList.add("on-listalla")
+            kortti.classList.remove("fokusoitu")
+            kortti.classList.remove("ei-listalla")
+            kortti.classList.add("on-listalla")
             e.stopPropagation()
 
             const parentDiv = nappula_on.parentNode
@@ -168,9 +181,9 @@ function kortinKlikkaus() {
             displayStatus()
         })
         nappula_ei.addEventListener("click", (e) => {
-            this.classList.remove("fokusoitu")
-            this.classList.remove("on-listalla")
-            this.classList.add("ei-listalla")
+            kortti.classList.remove("fokusoitu")
+            kortti.classList.remove("on-listalla")
+            kortti.classList.add("ei-listalla")
             e.stopPropagation()
 
             const parentDiv = nappula_ei.parentNode
@@ -181,7 +194,7 @@ function kortinKlikkaus() {
 
         const kaikkiPelikortit = muistipeli.querySelectorAll(".pelikortti")
         for (let i = 0; i < kaikkiPelikortit.length; i++) {
-            if (kaikkiPelikortit[i] !== this) {
+            if (kaikkiPelikortit[i] !== kortti) {
                 kaikkiPelikortit[i].classList.remove("fokusoitu")
                 const row = kaikkiPelikortit[i].querySelector(".nappula-container")
                 if (row) kaikkiPelikortit[i].removeChild(row)
@@ -189,8 +202,8 @@ function kortinKlikkaus() {
         }
     }
     else {
-        const row = this.querySelector(".nappula-container")
-        this.removeChild(row)
+        const row = kortti.querySelector(".nappula-container")
+        kortti.removeChild(row)
     }
 }
 
@@ -339,7 +352,7 @@ document.addEventListener("keyup", (event) => {
     //Tämä funktio huomaa jos käyttäjä painaa PrintScreen-nappia silloin kun tarkistusta ei ole vielä yritetty kertaakaan.
     //Funktio piilottaa kauppalistan näkyvistä ja korvaa sen tekstillä "Print screen detected". Näin ollen pelaaja ei voi huijata
     //(ainakaan helposti.)
-    
+
     if (event.key === "PrintScreen"&&tarkistuksia==0) {
         if (timer) {
             clearInterval(timer)
