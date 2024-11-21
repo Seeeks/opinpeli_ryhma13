@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yksikönmuunnospeli</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/yhteinen.css">
 </head>
 <body>
     <h1>Yksikkömuunnoksia</h1>
+
     <div id="pelialusta">
         <div id="aloitus-ruutu"></div> <!--Pelin aloitus näkymä-->
             <p>Auta kokki-kania tekemään yksikkömuunnoksia!</p>
@@ -15,9 +16,10 @@
         </div>
 
         <div id="kysymys-ruutu" style="display: none;"> <!--Pelin kysymys näkymä-->
+            <p> Mikä on oikea vastaus?</p>
             <p id="kysymys-teksti"></p>
             <div id="kysymysalusta"></div>
-            <button onclick="seuraavaKysmys()" id="seuraava-painike" disabled>Seuraava kysymys</button> <!--Painike jolla aktivoidaan seuraavaKysymys funktio-->
+            <button onclick="seuraavaKysymys()" id="seuraava-painike" disabled>Seuraava kysymys</button> <!--Painike jolla aktivoidaan seuraavaKysymys funktio-->
         </div>
 
         <div id="tulos-ruutu"> <!--Pelin tulos näkymä-->
