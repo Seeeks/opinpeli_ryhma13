@@ -1,0 +1,7 @@
+#aloitus-ruutu {
+    display: block;
+}
+
+#kysymys-ruutu, #tulos-ruutu {
+    display: none;
+}
