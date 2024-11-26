@@ -152,11 +152,15 @@ label:active {
     border: 5px solid #e9a452;
 }
 
+/* laptop*/
+
 @media screen and (max-width: 1024px) {
     .container {
         width: 500px;
     }
 }
+
+/*tablet*/
 
 @media screen and (max-width: 768px) {
     .container {
@@ -174,6 +178,8 @@ label:active {
         font-size: 1.2rem;
     }
 }
+
+/* mobile L */
 
 @media screen and (max-width: 425px) {
     html {
@@ -215,6 +221,8 @@ label:active {
     }
 }
 
+/* mobile M*/
+
 @media screen and (max-width: 375px) {
     html {
         font-size: 35%;
@@ -254,6 +262,8 @@ label:active {
         width: 8rem;
     }
 }
+
+/* mobile S */
 
 @media screen and (max-width: 320px) {
     html {
