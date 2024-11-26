@@ -94,4 +94,42 @@ function question3() {
     }
 }
 
+function question4() {
+    // Kysymyksen vaihtoehdot ja oikea vastaus
+    let result = document.getElementById("answer-result4");
+    let firstAnswer = document.getElementById("select4.1");
+    let secondAnswer = document.getElementById("select4.2");
+    let thirdAnswer = document.getElementById("select4.3");
+    let fourthAnswer = document.getElementById("select4.4");
+    let correctAnswer = document.getElementById("select4.2").checked;
+    let wrongLabels = document.getElementsByClassName("fourth-labels");
+    let correctLabel = document.getElementById("correct-fourth-label");
+    result.innerHTML = "";
+    //Tarkistetaan onko jokin vastaus valittu
+    if (firstAnswer.checked || secondAnswer.checked || thirdAnswer.checked || fourthAnswer.checked) {
+        //Tarkistetaan onko jokin vastaus valittu, mikäli on, ajetaan funktiota eteenpäin, muuten virheviesti
+        if (correctAnswer) {
+            result.innerHTML = RIGHT_ANSWER;
+            points++;
+            correctLabel.style.backgroundColor = "lightgreen";
+        } else {
+            result.innerHTML = WRONG_ANSWER + " Oikea vastaus on varis.";
+            for (let i = 0; i < wrongLabels.length; i++) {
+                wrongLabels[i].style.backgroundColor = "red";
+            }
+            correctLabel.style.backgroundColor = "lightgreen";
+        }
+        correctLabel.style.backgroundColor = "lightgreen";
+        //Deaktivoidaan painikkeet kun vastaus on tarkistettu
+        firstAnswer.disabled = true;
+        secondAnswer.disabled = true;
+        thirdAnswer.disabled = true;
+        fourthAnswer.disabled = true;
+        document.getElementById("check-btn4").disabled = true;
+        answered--;
+        document.getElementById("check-btn4").style.backgroundColor = "#e9a452";
+    } else {
+        result.innerHTML = ANSWER_ERROR;
+    }
+}
 
