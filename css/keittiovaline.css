@@ -1,0 +1,303 @@
+body {
+    background-color: #e9a452;
+}
+
+.container-fluid {
+    width: 35%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container {
+    width: 35%;
+}
+
+.header-container {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 3rem;
+}
+
+.visa-header {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px #b6711f;
+    align-self: center;
+    padding-bottom: 2.5rem;
+    padding-top: 1rem;
+}
+
+.header-container p {
+    padding-bottom: 3rem;
+    font-size: 1.5rem;
+}
+
+.visa-grid {
+    text-align: center;
+    display: grid;
+    column-gap: 3rem;
+    row-gap: 2.5rem;
+    padding-top: 3rem;
+    background-color: #e38d27;
+    border-radius: 30px;
+    border: 6px solid #e6983d;
+}
+
+.visa-content {
+    display: flex;
+    justify-content: center;
+}
+
+.visa-question {
+    padding: 3rem 4rem;
+    border-radius: 5px;
+    background-color: #c8e9a0af;
+    max-height: 26rem;
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.092), 0 4px 6px rgba(0, 0, 0, 0.348);
+}
+
+strong {
+    font-size: 1.5rem;
+}
+
+.question-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 3rem;
+}
+
+.question-img-container {
+    justify-content: center;
+    display: inline-block;
+    max-width: 22rem;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 18rem;
+    max-height: 12rem;
+}
+
+.visa-answer-options {
+    font-size: 1rem;
+}
+
+.visa-answer-options input[type="radio"]:checked+label {
+    background-color: #b6e6ac;
+    text-decoration: underline;
+}
+
+.button-grid {
+    padding: 2rem 2rem 0 2rem;
+    line-height: 1.2rem;
+    max-width: 30rem;
+    margin: 0 auto;
+}
+
+.radio-selection {
+    padding: 1.2rem;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    display: none;
+}
+
+label,
+.check-btn {
+    display: inline-block;
+    padding: 2rem;
+    width: 12rem;
+    background-color: white;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    box-shadow: inset 0 0 0px rgba(0, 0, 0, 0.275), 0 4px 6px rgba(0, 0, 0, 0.348);
+    border: none;
+    font-weight: bold;
+}
+
+.check-btn {
+    border: 5px solid #e9a452;
+    padding: 1rem 0.5rem; 
+    max-width: 100%; 
+    font-size: 1rem; 
+    font-family: inherit;
+    text-align: center; 
+    word-wrap: break-word; 
+    overflow: hidden; 
+    white-space: normal; 
+}
+
+
+label:hover,
+label:active {
+    background-color: #caffbf;
+    transition: all 0.2s;
+}
+
+.id-answer {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 2rem 0;
+}
+
+.check-btn:hover,
+.check-btn:active {
+    background-color: #e9a452;
+    transition: all 0.2s;
+    border: 5px solid #e9a452;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 450px;
+    }
+    label {
+        padding: 2.5rem;
+        width: 15rem;
+    }
+    .check-btn {
+        padding: 2.5rem;
+        width: 15rem;
+    }
+    .visa-answer-options {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    html {
+        font-size: 40%;
+    }
+    .question-title {
+        padding-bottom: 2rem;
+    }
+    .question-img-container img {
+        padding: 1rem;
+        max-width: 15rem;
+        max-height: 10rem;
+    }
+    .visa-header {
+        font-weight: 600;
+        font-size: 3rem;
+    }
+    .visa-question {
+        width: 20rem;
+        height: 20rem;
+        padding: 1.5rem;
+    }
+    .container {
+        width: 250px;
+    }
+    .visa-grid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .button-grid {
+        padding-top: 1rem;
+    }
+    .visa-answer-options {
+        font-size: 1rem;
+    }
+    label {
+        padding: 1.5rem;
+        width: 10rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    html {
+        font-size: 35%;
+    }
+    .question-title {
+        padding-bottom: 1.5rem;
+    }
+    .question-img-container img {
+        padding: 0.8rem;
+        max-width: 12rem;
+        max-height: 9rem;
+    }
+    .visa-header {
+        font-weight: 600;
+        font-size: 2.8rem;
+    }
+    .visa-question {
+        width: 16rem;
+        height: 16rem;
+        padding: 1.2rem;
+    }
+    .container {
+        width: 230px;
+    }
+    .visa-grid {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+    .button-grid {
+        padding-top: 0.8rem;
+    }
+    .visa-answer-options {
+        font-size: 1rem;
+    }
+    label {
+        padding: 1.2rem;
+        width: 8rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    html {
+        font-size: 30%;
+    }
+    .question-title {
+        padding-bottom: 1.2rem;
+    }
+    .question-img-container img {
+        padding: 0.8rem;
+        max-width: 11rem;
+        max-height: 7rem;
+    }
+    .visa-header {
+        font-weight: 600;
+        font-size: 2.5rem;
+    }
+    .visa-question {
+        width: 14rem;
+        height: 14rem;
+        padding: 1rem;
+    }
+    .container {
+        width: 200px;
+    }
+    .visa-grid {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+    .button-grid {
+        padding-top: 0.8rem;
+    }
+    .visa-answer-options {
+        font-size: 0.9rem;
+        padding-right: 0.6rem;
+    }
+    label {
+        padding: 1rem 0.8rem;
+        width: 7rem;
+    }
+    .check-btn {
+        padding: 1rem 0.8rem;
+        max-width: 9rem;
+        max-height: 9rem;
+        font-size: 1.2rem;
+    }
+}
