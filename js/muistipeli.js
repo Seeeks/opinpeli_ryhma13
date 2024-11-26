@@ -1,42 +1,44 @@
 const ilona_canvas = document.getElementById("ilona_canvas");
 const ctx = ilona_canvas.getContext("2d");
 const muistipeli = document.getElementById("muistipeli");
+const lueAaneen = document.getElementById("lueAaneen");
 const lisaaAikaa = document.getElementById("lisaaAikaa");
 const tarkista = document.getElementById("tarkista");
 const aloitaAlusta = document.getElementById("aloitaAlusta");
 const infokupla = document.getElementById("infokupla");
+let soundIsPlaying = false
 let timer;//tätä ei määritellä alussa
 let animationId = null
 const ostos_vaihtoehdot = [
-    {txt: "kevytmaito", img: "kevytmaito.png"},
-    {txt: "banaanit", img: "banaani.png"},
-    {txt: "folio", img: "folio.png"},
-    {txt: "ilmapallot", img: "ilmapallot.png"},
-    {txt: "jogurtti", img: "jogurtti.png"},
-    {txt: "juustoraaste", img: "juustoraaste.png"},
-    {txt: "kanan jauheliha", img: "kanan_jauheliha.png"},
-    {txt: "kaurakerma", img: "kaurakerma.png"},
-    {txt: "kauramaito", img: "kauramaito.png"},
-    {txt: "kuohukerma", img: "kuohukerma.png"},
-    {txt: "kurkku", img: "kurkku.png"},
-    {txt: "laktoositon maito", img: "laktoositon_maito.png"},
-    {txt: "leivinpaperi", img: "leivinpaperi.png"},
-    {txt: "makkara", img: "makkara.png"},
-    {txt: "munat", img: "munat.png"},
-    {txt: "nakit", img: "nakit.png"},
-    {txt: "naudan jauheliha", img: "naudan_jauheliha.png"},
-    {txt: "omenat", img: "omena.png"},
-    {txt: "raejuusto", img: "raejuusto.png"},
-    {txt: "rasvaton maito", img: "rasvaton_maito.png"},
-    {txt: "ruokakerma", img: "ruokakerma.png"},
-    {txt: "ruokaöljy", img: "ruokaoljy.png"},
-    {txt: "sokeri", img: "sokeri.png"},
-    {txt: "suklaa", img: "suklaa.png"},
-    {txt: "suola", img: "suola.png"},
-    {txt: "tomaatit", img: "tomaatti.png"},
-    {txt: "vegaanijuusto", img: "vegaanijuusto.png"},
-    {txt: "vispikerma", img: "vispikerma.png"},
-    {txt: "voi", img: "voi.png"}
+    {txt: "kevytmaito", img: "kevytmaito.png", audio: "kevytmaito.m4a"},
+    {txt: "banaanit", img: "banaani.png", audio: "banaanit.m4a"},
+    {txt: "folio", img: "folio.png", "audio": "folio.m4a"},
+    {txt: "ilmapallot", img: "ilmapallot.png", audio: "ilmapallot.m4a"},
+    {txt: "jogurtti", img: "jogurtti.png", audio: "jogurtti.m4a"},
+    {txt: "juustoraaste", img: "juustoraaste.png", audio: "juustoraaste.m4a"},
+    {txt: "kanan jauheliha", img: "kanan_jauheliha.png", audio: "kanan_jauheliha.m4a"},
+    {txt: "kaurakerma", img: "kaurakerma.png", audio: "kaurakerma.m4a"},
+    {txt: "kauramaito", img: "kauramaito.png", audio: "kauramaito.m4a"},
+    {txt: "kuohukerma", img: "kuohukerma.png", audio: "kuohukerma.m4a"},	
+    {txt: "kurkku", img: "kurkku.png", audio: "kurkku.m4a"},
+    {txt: "laktoositon maito", img: "laktoositon_maito.png", audio: "laktoositon_maito.m4a"},
+    {txt: "leivinpaperi", img: "leivinpaperi.png", audio: "leivinpaperi.m4a"},
+    {txt: "makkara", img: "makkara.png", audio: "makkara.m4a"},
+    {txt: "munat", img: "munat.png", audio: "munat.m4a"},
+    {txt: "nakit", img: "nakit.png", audio: "nakit.m4a"},
+    {txt: "naudan jauheliha", img: "naudan_jauheliha.png", audio: "naudan_jauheliha.m4a"},
+    {txt: "omenat", img: "omena.png", audio: "omenat.m4a"},
+    {txt: "raejuusto", img: "raejuusto.png", audio: "raejuusto.m4a"},
+    {txt: "rasvaton maito", img: "rasvaton_maito.png", audio: "rasvaton_maito.m4a"},
+    {txt: "ruokakerma", img: "ruokakerma.png", audio: "ruokakerma.m4a"},
+    {txt: "ruokaöljy", img: "ruokaoljy.png", audio: "ruokaoljy.m4a"},
+    {txt: "sokeri", img: "sokeri.png", audio: "sokeri.m4a"},
+    {txt: "suklaa", img: "suklaa.png", audio: "suklaa.m4a"},
+    {txt: "suola", img: "suola.png", audio: "suola.m4a"},
+    {txt: "tomaatit", img: "tomaatti.png", audio: "tomaatit.m4a"},
+    {txt: "vegaanijuusto", img: "vegaanijuusto.png", audio: "vegaanijuusto.m4a"},
+    {txt: "vispikerma", img: "vispikerma.png", audio: "vispikerma.m4a"},
+    {txt: "voi", img: "voi.png", audio: "voi.m4a"},
 ]
 let pystysuuntainenvenytys = 1
 let muistilista;
@@ -84,6 +86,14 @@ function lopetaValutus() {
     }
 }
 
+function playSound(tiedoston_nimi, callback) {
+    const sound = new Audio()
+    sound.src = `../audio/${tiedoston_nimi}`
+    sound.play()
+
+    sound.addEventListener("ended", callback);
+}
+
 function naytaCountdown(i) {
     ctx.clearRect(0, 0, ilona_canvas.width, ilona_canvas.height)
     ctx.save()
@@ -99,30 +109,33 @@ function naytaCountdown(i) {
 function kaynnista() {
     muistilista = arvoMuistilista()
     
-    aikaa_jaljella = 20
-
-    lisaaAikaa.classList.remove("d-none")
-
-    naytaCountdown(aikaa_jaljella)//tämä kutsuu myös näytä teksti normaalisti
-
-    if (timer) {
-        clearInterval(timer)
-    }
-
-    timer = setInterval(() => {
-        
-        aikaa_jaljella--
-        naytaCountdown(aikaa_jaljella)
-        if (aikaa_jaljella < 0) {
-            clearInterval(timer)
-            lisaaAikaa.classList.add("d-none")
-            window.requestAnimationFrame(valutaTeksti)
-            lisaaPelikortit()
-        }
-    }, 1000)
+    aloitaLaskuriAlusta()
 
     aloitaAlusta.textContent = "Aloita alusta"
 }
+
+function aloitaLaskuriAlusta() {  
+    aikaa_jaljella = 20;//resetoi laskurin 20 sekuntiin 
+    lisaaAikaa.classList.remove("d-none");  
+    naytaCountdown(aikaa_jaljella);
+
+    if (timer) {  
+        clearInterval(timer);//Poistaa vanhan timerin jos olemassa
+    }  
+
+    timer = setInterval(() => {  
+        aikaa_jaljella--;  
+        naytaCountdown(aikaa_jaljella);  
+
+        if (aikaa_jaljella < 0) {  
+            clearInterval(timer);  
+            lisaaAikaa.classList.add("d-none");  
+            lueAaneen.classList.add("disabled");  
+            window.requestAnimationFrame(valutaTeksti);  
+            lisaaPelikortit();  
+        }  
+    }, 1000);  
+}  
 
 function lisaaPelikortit() {
     for (let i = 0; i < kokonaiskoko; i++) {
@@ -279,19 +292,7 @@ function tarkistaKortit() {
 
 lisaaAikaa.addEventListener("click", () => {
     if (aikaa_jaljella > 0) {
-        clearInterval(timer)
-        aikaa_jaljella = 20
-        naytaCountdown(aikaa_jaljella)
-        timer = setInterval(() => {
-            aikaa_jaljella--
-            naytaCountdown(aikaa_jaljella)
-
-            if (aikaa_jaljella < 0) {
-                clearInterval(timer)
-                lisaaAikaa.classList.add("d-none")
-                window.requestAnimationFrame(valutaTeksti)
-            }
-        }, 1000)
+        aloitaLaskuriAlusta()
     }
 })
 
@@ -307,6 +308,7 @@ aloitaAlusta.addEventListener("click", () => {
     koko_lista = []
     lisaaAikaa.classList.remove("d-none")
     tarkista.classList.add("disabled")
+    lueAaneen.classList.remove("disabled")
     tarkistuksia = 0
     infokupla.textContent = "Lue kauppalista ennen kuin se sulaa sateessa. Lajittele tuotteet sen mukaan, olivatko ne listalla vai ei?"
 
@@ -367,5 +369,25 @@ document.addEventListener("keyup", (event) => {
         ctx.fillText("Print screen detected", 20, 40)
 
         ctx.restore()
+    }
+})
+
+lueAaneen.addEventListener("click", () => {
+    if (timer&&!soundIsPlaying) {
+        soundIsPlaying = true
+
+        const lueLista = (sounds) => {
+            if (sounds.length === 0) {
+                soundIsPlaying = false
+                return
+            }
+
+            const nextSound = sounds[0]
+            playSound(nextSound.audio, () => {
+                lueLista(sounds.slice(1))
+            })
+        }
+        
+        lueLista(muistilista)
     }
 })
