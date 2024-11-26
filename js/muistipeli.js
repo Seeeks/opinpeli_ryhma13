@@ -338,6 +338,27 @@ tarkista.addEventListener("click", () => {
 
     if (pisteet === maksimipisteet) {
         infokupla.textContent = "Onneksi olkoon! Sait täydet pisteet!"
+
+        //Timo on löytänyt confettikoodin netistä
+        // Seuraava koodi on otettu netistä lähde: https://dev.to/official_fire/creating-a-confetti-effect-in-5-minutes-16h3
+        // for starting the confetti
+        const start = () => {
+            setTimeout(function() {
+                confetti.start();
+            }, 1000);
+            // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+
+        //  for stopping the confetti
+
+        const stop = () => {
+            setTimeout(function() {
+                confetti.stop();
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        // after this here we are calling both the function so it works
+        start();
+        stop();
     }
     else if (pisteet === maksimipisteet-tarkistuksia) {
         infokupla.textContent = "Sait kaikki oikein, mutta maksimipisteiden saaminen vaatii onnistumista yhdellä tarkistuksella. Voit yrittää onneasi uudestaan tai siirtyä toiselle sivulle."

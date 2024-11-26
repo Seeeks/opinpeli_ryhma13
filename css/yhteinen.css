@@ -109,4 +109,17 @@ footer a {
 .esittely img {
     width: 150px;
     height: 150px;
+    /* Tässä on vaan testailtu confettia varten värejä*/
+    /* color: rgb(0, 152, 212);
+    color: rgb(21, 161, 89);
+    color: rgba(255,215,0,1);
+    color: rgba(255,192,203,1);
+    color: rgb(5, 109, 194);
+    color: rgb(65, 193, 222);
+    color: rgb(255, 159, 175);
+    color: rgb(79, 222, 186);
+    color: rgb(2, 86, 155);
+    color: rgb(255, 161, 45);
+    color: rgb(238, 97, 10);
+    color: rgb(232, 68, 22); */
 }

@@ -37,19 +37,19 @@ var confetti = {
         window.oRequestAnimationFrame ||
         window.msRequestAnimationFrame;
     var colors = [
-        "rgba(30,144,255,",
-        "rgba(107,142,35,",
+        "rgba(0, 152, 212,",
+        "rgba(21, 161, 89,",
         "rgba(255,215,0,",
         "rgba(255,192,203,",
-        "rgba(106,90,205,",
-        "rgba(173,216,230,",
-        "rgba(238,130,238,",
-        "rgba(152,251,152,",
-        "rgba(70,130,180,",
-        "rgba(244,164,96,",
-        "rgba(210,105,30,",
-        "rgba(220,20,60,",
-    ];
+        "rgba(5, 109, 194,",
+        "rgba(65, 193, 222,",
+        "rgba(255, 159, 175,",
+        "rgba(79, 222, 186,",
+        "rgba(2, 86, 155,",
+        "rgba(255, 161, 45,",
+        "rgba(238, 97, 10,",
+        "rgba(232, 68, 22,",
+    ];//The colors have been swapped out to theme colors except the yellow.
     var streamingConfetti = false;
     var animationTimer = null;
     var pause = false;
