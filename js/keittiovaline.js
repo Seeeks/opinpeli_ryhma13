@@ -133,3 +133,54 @@ function question4() {
     }
 }
 
+function checkResult() {
+    // Määritetään kysymysten tarkistus painikkeet sekä lopputuloksen tulostuskenttä
+    let check1 = document.getElementById("check-btn1");
+    let check2 = document.getElementById("check-btn2");
+    let check3 = document.getElementById("check-btn3");
+    let check4 = document.getElementById("check-btn4");
+    let check5 = document.getElementById("check-btn5");
+    let finalInput = document.getElementById("printFinalResult");
+    let finalCheckBtn = document.getElementById("final-check-btn");
+
+    // Tarkistetaan, että points-muuttuja on olemassa ja määritelty
+    if (typeof points === "undefined") {
+        console.error("points-muuttujaa ei ole määritelty!");
+        finalInput.innerHTML = "Virhe: pistemäärää ei löydy.";
+        return;
+    }
+
+    // Lasketaan jäljellä olevat kysymykset
+    let answered =
+        !check1.disabled +
+        !check2.disabled +
+        !check3.disabled +
+        !check4.disabled +
+        !check5.disabled;
+
+    // Tarkistetaan onko kaikki kysymykset tarkistettu
+    if (answered === 0) {
+        let finalResult = `Sait ${points} / 5 pistettä<br>`;
+
+        if (points < 3) {
+            finalResult += "Parempi onni ensi kerralla!";
+        } else if (points < 5) {
+            finalResult += "Hyvää työtä!";
+        } else if (points === 5) {
+            finalResult += "Erinomaista työtä!";
+        }
+
+        finalInput.innerHTML = finalResult;
+
+        // Estetään lopputarkistuspainike ja muutetaan sen väri
+        finalCheckBtn.disabled = true;
+        finalCheckBtn.style.backgroundColor = "#e9a452";
+    } else {
+        finalInput.innerHTML =
+            "Vastaa ensin kaikkiin kysymyksiin!" +
+            " Sinulla on vielä " +
+            answered +
+            " kysymystä jäljellä.";
+    }
+}
+
