@@ -24,7 +24,7 @@ function question1() {
             points++;
             correctLabel.style.backgroundColor = "lightgreen";
         } else {
-            result.innerHTML = WRONG_ANSWER + " Oikea vastaus on metso.";
+            result.innerHTML = WRONG_ANSWER + " Oikea vastaus on Paistinpannu.";
             for (let i = 0; i < wrongLabels.length; i++) {
                 wrongLabels[i].style.backgroundColor = "red";
             }
@@ -62,7 +62,7 @@ function question2() {
             points++;
             correctLabel.style.backgroundColor = "lightgreen";
         } else {
-            result.innerHTML = WRONG_ANSWER + " Oikea vastaus on lapinpöllö.";
+            result.innerHTML = WRONG_ANSWER + " Oikea vastaus on Veitsi.";
             for (let i = 0; i < wrongLabels.length; i++) {
                 wrongLabels[i].style.backgroundColor = "red";
             }
@@ -100,7 +100,7 @@ function question3() {
             points++;
             correctLabel.style.backgroundColor = "lightgreen";
         } else {
-            result.innerHTML = WRONG_ANSWER + " Oikea vastaus on joutsen.";
+            result.innerHTML = WRONG_ANSWER + " Oikea vastaus on Raastin.";
             for (let i = 0; i < wrongLabels.length; i++) {
                 wrongLabels[i].style.backgroundColor = "red";
             }
@@ -138,7 +138,7 @@ function question4() {
             points++;
             correctLabel.style.backgroundColor = "lightgreen";
         } else {
-            result.innerHTML = WRONG_ANSWER + " Oikea vastaus on varis.";
+            result.innerHTML = WRONG_ANSWER + " Oikea vastaus on Kauha.";
             for (let i = 0; i < wrongLabels.length; i++) {
                 wrongLabels[i].style.backgroundColor = "red";
             }
@@ -177,7 +177,7 @@ function question5() {
             points++;
             correctLabel.style.backgroundColor = "lightgreen";
         } else {
-            result.innerHTML = WRONG_ANSWER + " Oikea vastaus on naurulokki.";
+            result.innerHTML = WRONG_ANSWER + " Oikea vastaus on Kaulin.";
             for (let i = 0; i < wrongLabels.length; i++) {
                 wrongLabels[i].style.backgroundColor = "red";
             }
