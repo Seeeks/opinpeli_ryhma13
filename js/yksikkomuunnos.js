@@ -9,13 +9,13 @@ const kysymykset = [
         kysymys: "Montako millilitraa on 30 desilitraa?",
         valinnat: ["300 millilitraa", "3 millilitraa", "3 000 millilitraa", "0.03 millilitraa"],
         vastaus: "3 000 millilitraa",
-        ohjeet: "1 desilitra on 100 millilitraa, joten 30 desilitraa on 30 * 100 = 3 000 millilitraa."
+        ohjeet: "1 desilitra on 100 millilitraa, joten 30 * 100 = 3 000 millilitraa."
     },
     {
         kysymys: "Montako litraa on 12000 millilitraa?",
         valinnat: ["12 litraa", "1.2 litraa", "0.12 litraa", "120 litraa"],
         vastaus: "12 litraa",
-        ohjeet: "1 litra on 1 000 millilitraa, joten 12 000 millilitraa on 12 000 / 1000 = 12 litraa."
+        ohjeet: "1 litra on 1 000 millilitraa, joten 12 000 / 1000 = 12 litraa."
     },
     {
         kysymys: "Montako kilogrammaa on 700 grammaa?",
@@ -33,7 +33,7 @@ const kysymykset = [
         kysymys: "Montako milligrammaa on 0.06 kilogrammaa?",
         valinnat: ["600 milligrammaa", "60 milligrammaa", "60 000 milligrammaa", "6 milligrammaa"],
         vastaus: "60 000 milligrammaa",
-        ohjeet: "1 kilogramma on 1 000 000 milligrammaa. Joten 0.06 kilogrammaa on 0.06 * 1 000 000 = 60 000 milligrammaa."
+        ohjeet: "1 kilogramma on 1 000 000 milligrammaa, joten 0.06 * 1 000 000 = 60 000 milligrammaa."
     },
     {
         kysymys: "Montako millilitraa on 1 ruokalusikka",
@@ -45,19 +45,19 @@ const kysymykset = [
         kysymys: "Montako grammaa on 2.5 kilogrammaa?",
         valinnat: ["250 grammaa", "2 500 grammaa", "25 grammaa", "25 000 grammaa"],
         vastaus: "2 500 grammaa",
-        ohjeet: "1 kilogramma on 1000 grammaa, joten 2.5 kilogrammaa on 2.5 * 1000 = 2500 grammaa."
+        ohjeet: "1 kilogramma on 1000 grammaa, joten 2.5 * 1000 = 2500 grammaa."
     },
     {
         kysymys: "Montako litraa on 2500 millilitraa?",
         valinnat: ["2.5 litraa", "25 litraa", "0.25 litraa", "250 litraa"],
         vastaus: "2.5 litraa",
-        ohjeet: "1 litra on 1 000 millilitraa, joten 2500 millilitraa on 2500 / 1 000 = 2.5 litraa."
+        ohjeet: "1 litra on 1 000 millilitraa, joten 2500 / 1 000 = 2.5 litraa."
     },
     {
         kysymys: "Montako desilitraa on 0.75 litraa?",
         valinnat: ["7.5 desilitraa", "75 desilitraa", "0.75 desilitraa", "750 desilitraa"],
         vastaus: "7.5 desilitraa",
-        ohjeet: "1 litra on 10 desilitraa, joten 0.75 litraa on 0.75 * 10 = 7.5 desilitraa."
+        ohjeet: "1 litra on 10 desilitraa, joten 0.75 * 10 = 7.5 desilitraa."
     }
     
 ]   //Lista mikä sisältää kysymykset, vaihtoehdot sekä vastaukset
