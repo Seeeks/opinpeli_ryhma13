@@ -133,14 +133,14 @@ const lopetaPeli = () => {
 
     let tulosteksti = ""
 
-    if (pisteet >= 16) {
+    if (pisteet >= 16) {                //Tulostaa tulos-tekstin pelaajan suorituksen mukaan
         tulosteksti = `Uskomatonta! Sait ${oikein} / ${kysymykset.length} oikein! Olet mestari!`
 
     } else if (pisteet >= 10) {
         tulosteksti = `Hyvin tehty! Sait ${oikein} / ${kysymykset.length} oikein. Harjoittelemalla voit parantaa vielä enemmän.`
 
     } else {
-        tulosteksti = `Voi ei! sait ${oikein} / ${kysymykset.length} oikein. Ei hätää, harjoittelu tekee mestarin! Kokeile uudelleen ja paranna tulostasi.`    
+        tulosteksti = `Voi ei! Sait ${oikein} / ${kysymykset.length} oikein. Ei hätää, harjoittelu tekee mestarin! Kokeile uudelleen ja paranna tulostasi.`    
     }
 
     document.getElementById("tulos-teksti").innerText = tulosteksti
