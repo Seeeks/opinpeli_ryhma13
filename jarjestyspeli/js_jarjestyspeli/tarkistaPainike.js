@@ -10,5 +10,6 @@ const tarkista = () =>{
 
     document.getElementById("pelin_hallinta").appendChild(tarkistus);
     document.getElementById("peli_tarkista").disabled = true;
+    document.getElementById("peli_hallitse").disabled = false;
 }
 
