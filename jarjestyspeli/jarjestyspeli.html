@@ -39,17 +39,17 @@
     </nav>
     <main class="flex-shrink-0 p-3">
         <H1>Järjestyspeli</H1>
-
+        <p id="mika_peli" class="mika_peli"></p>
         <div id="pelin_hallinta" class="pelin_hallinta">
+            
             <div id="peliruutu" class="peliruutu">
-                <p>täytettä</p>
+                <p id="mika_peli" class="mika_peli"></p>
             </div>
         </div>
 
         <div id="painikkeet" class="painikkeet">
-            <button id="peli_hallitse" onclick=uusipeli()>Uusi peli</button>
-            <button id="peli_tarkista" onclick= tarkista()>Tarkista</button>
-            <button id="peli_tallenna">Tallenna</button>
+            <button id="peli_hallitse" onclick=uusipeli()>Pelaa, kierros 1</button>
+            <button id="peli_tarkista" onclick= tarkista() disabled=true >Tarkista</button>
         </div>
 
     </main>
