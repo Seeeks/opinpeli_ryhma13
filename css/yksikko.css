@@ -1,7 +1,173 @@
 #aloitus-ruutu {
     display: block;
+    background-color: #ec8609;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 500px;
+    margin: 50px auto;
 }
 
-#kysymys-ruutu, #tulos-ruutu {
+#aloitus-ruutu p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #301200;
+}
+
+#aloitus-ruutu button {
+    background-color: #ff5d00;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 10px;
+}
+
+#aloitus-ruutu button:hover {
+    background-color: #ff781f;
+    transform: scale(1.05);
+}
+
+#aloitus-ruutu button:active {
+    background-color: #e65100;
+    transform: scale(0.98);
+}
+
+#kysymys-ruutu {
     display: none;
+    background-color: #ec8609;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+#kysymys-ruutu p {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: #301200;
+}
+
+#valinta-laatikko {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.valinta-painike {
+    background-color: #c8e9a0af;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 10px;
+}
+
+.valinta-painike:hover {
+    background-color: #4490a3;
+    transform: scale(1.05);
+}
+
+.valinta-painike:active {
+    background-color: #366d7f;
+    transform: scale(0.98);
+}
+
+#seuraava-painike {
+    background-color: #ff5d00;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 10px;
+}
+
+#seuraava-painike:hover {
+    background-color: #ff781f;
+    transform: scale(1.05);
+}
+
+#seuraava-painike:active {
+    background-color: #e65100;
+    transform: scale(0.98);
+}
+
+#tulos-ruutu {
+    display: none;
+    background-color: #ec8609;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+#tulos-ruutu p {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: #301200;
+}
+
+#tulos-ruutu button {
+    background-color: #ff5d00;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 10px;
+}
+
+#tulos-ruutu button:hover {
+    background-color: #ff781f;
+    transform: scale(1.05);
+}
+
+#tulos-ruutu button:active {
+    background-color: #e65100;
+    transform: scale(0.98);
+}
+
+.kokkikani-laatikko {
+    position: fixed;
+    left: 10px;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kokkikani-laatikko img {
+    width: 250px;
+    height: auto;
+}
+
+.tekstikupla {
+    position: absolute;
+    top: -120px;
+    left: 90%;
+    background-color: #fff;
+    color: #301200;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    max-width: 200px;
+    text-align: center;
+    font-weight: bold;
 }
