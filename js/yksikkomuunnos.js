@@ -72,6 +72,7 @@ const aloitaPeli = () => {      //Funktio jolla aloitetaan peli//
     kysymysnumero = 0   //Nollaa laskurit, jos halutaan pelata peliä uudestaan
     oikein = 0
     kysymykset.sort(() => Math.random() - 0.5) //Sekoittaa kysymykset satunnaiseen järjestykseen
+    paivitaPuhekupla("Noniin nyt aloitetaan! Valitse oikea vastaus!")
     tuoKysymys()
 }
 
@@ -90,6 +91,7 @@ const tuoKysymys = () => {      //Funktio joka hakee seuraavan kysymyksen sekä 
         painike.onclick = () => valitseVastaus(painike, valinta)
         valintaLaatikko.appendChild(painike)
     })
+    paivitaPuhekupla("Valitse oikea vaihtoehto!")
 }
 
 const valitseVastaus = (painike, valittuValinta) => {       //Tällä funktiolla käyttäjä valitsee vastauksen, tarkastaa ja päivittää käyttöliittymän sekä pelitilan sen mukaisesti
@@ -102,9 +104,11 @@ const valitseVastaus = (painike, valittuValinta) => {       //Tällä funktiolla
         oikein++
         painike.style.backgroundColor = "lightgreen"
         palauteLaatikko.innerText = "Oikein!"
+        paivitaPuhekupla("Hienoa! Oikein meni!")
     } else {
         painike.style.backgroundColor = "lightcoral"
         palauteLaatikko.innerText = `Väärin! Oikea vastaus on: ${oikeaVastaus}.`    //Kertoo oikean vastauksen jos vastaa väärin
+        paivitaPuhekupla("Voi ei, väärin meni. Ei hätää, katso ohjeet miten tehtävä lasketaan")
         ohjeetLaatikko.innerText = `${ohjeet}`  //Kertoo ohjeet kuinka oikea vastaus lasketaan.
     }
 
@@ -135,12 +139,14 @@ const lopetaPeli = () => {
 
     if (pisteet >= 16) {                //Tulostaa tulos-tekstin pelaajan suorituksen mukaan
         tulosteksti = `Uskomatonta! Sait ${oikein} / ${kysymykset.length} oikein! Olet mestari!`
+        paivitaPuhekupla("Olet todellinen mestari!")
 
     } else if (pisteet >= 10) {
         tulosteksti = `Hyvin tehty! Sait ${oikein} / ${kysymykset.length} oikein. Harjoittelemalla voit parantaa vielä enemmän.`
-
+        paivitaPuhekupla("Hienoa työtä, jatka harjoittelua!")
     } else {
-        tulosteksti = `Voi ei! Sait ${oikein} / ${kysymykset.length} oikein. Ei hätää, harjoittelu tekee mestarin! Kokeile uudelleen ja paranna tulostasi.`    
+        tulosteksti = `Voi ei! Sait ${oikein} / ${kysymykset.length} oikein. Ei hätää, harjoittelu tekee mestarin! Kokeile uudelleen ja paranna tulostasi.`
+        paivitaPuhekupla("Ei hätää, harjoittelu auttaa!"); 
     }
 
     document.getElementById("tulos-teksti").innerText = tulosteksti
@@ -150,4 +156,8 @@ const lopetaPeli = () => {
 const resetoiPeli = () => {     //Funktio jolla voidaan aloittaa peli uudestaan.
     document.getElementById("tulos-ruutu").style.display = "none"   //Piilottaa tulosruudun
     document.getElementById("aloitus-ruutu").style.display = "block"    //Näyttää aloitusruudun
+}
+
+const paivitaPuhekupla = (teksti) => {
+    document.getElementById("tekstikupla").innerText = teksti
 }
