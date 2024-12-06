@@ -41,18 +41,22 @@
         <div class="d-flex flex-row p-3">
             <img src="./kuvat/kokkikani.png" alt="Kokki-Kani" class="kokkikani-logo">
             <div class="puhekupla-vasen h-50">
-                Etene läpi tasojen ja kerää pisteet kotiin!
+                Katsotaanpas, miten olet pärjännyt.
             </div>
         </div>
         
-        <h2 class="text-center mb-3">Pelivalikoima</h2>
+        <h2 class="text-center mb-3">Yksittäisten pelien pisteet</h2>
         <div class="d-flex flex-row flex-wrap justify-content-center">
-            <div class="esittely"><img src="./kuvat/banaani.png" alt="" class="ympyra"><p>Kauppareissu-muistipeli</p></div>
-            <div class="esittely"><img src="" alt="" class="ympyra"><p>Yksikkömuunnos</p></div>
-            <div class="esittely"><img src="./kuvat/Keittiövalineet.jpg" alt="" class="ympyra"><p>Keittiövälinetunnistus</p></div>
-            <div class="esittely"><img src="" alt="" class="ympyra"><p>Järjestyspeli</p></div>
-            <div class="esittely"><img src="" alt="" class="ympyra"><p>Trivia</p></div>
-            <div class="esittely"><img src="" alt="" class="ympyra"><p>Kalorit</p></div>
+            <div class="esittely"><output id="muistiPisteet" class="ympyra fs-3">--</output><p>Kauppareissu-muistipeli</p></div>
+            <div class="esittely"><output id="yksikkoPisteet" class="ympyra fs-3">--</output><p>Yksikkömuunnos</p></div>
+            <div class="esittely"><output id="valinePisteet" class="ympyra fs-3">--</output><p>Keittiövälinetunnistus</p></div>
+            <div class="esittely"><output id="jarjestysPisteet" class="ympyra fs-3">--</output><p>Järjestyspeli</p></div>
+            <div class="esittely"><output id="triviaPisteet" class="ympyra fs-3">--</output><p>Trivia</p></div>
+            <div class="esittely"><output id="kaloriPisteet" class="ympyra fs-3">--</output><p>Kalorit</p></div>
+        </div>
+        <h2 class="text-center mb-3">Yhteispisteet</h2>
+        <div class="d-flex flex-row justify-content-center">
+            <div class="esittely"><output id="yhtPisteet" class="ympyra fs-1">--</output><p>Yhteispisteet</p></div>
         </div>
     </main>
     <footer class="footer mt-auto">
@@ -66,4 +70,6 @@
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="./js/shared.js"></script>
+<script src="./js/pisteet.js"></script>
 </html>

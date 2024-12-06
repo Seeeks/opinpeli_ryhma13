@@ -15,7 +15,7 @@ function haeTietoSessionStoragesta(muistipaikka) {
 }
 
 function laskeYhteispisteet() {
-    const haettavatMuistipaikat = ["muistipelinPisteet"]
+    const haettavatMuistipaikat = ["muistipelinPisteet", "yksikkomuunnosPisteet"]
     //Jokainen käy lisäämässä listan jatkoksi oman muuttujansa nimen, esim "aapelinPisteet", "beepelinPisteet" jne.
     let yhteispisteet = 0
     for (let i = 0; i < haettavatMuistipaikat.length; i++) {
@@ -25,4 +25,6 @@ function laskeYhteispisteet() {
         }
         yhteispisteet += Number(haettuItem)
     }
+
+    return yhteispisteet
 }
