@@ -252,3 +252,4 @@ function checkResult() {
             " kysymystä jäljellä.";
     }
 }
+tallennaSessionStorageen("keittiovalinePisteet", pisteet) // Tallentaa pisteet session storageen funktion avulla joka löytyy shared.js
