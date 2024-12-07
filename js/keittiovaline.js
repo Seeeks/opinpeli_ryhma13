@@ -251,5 +251,7 @@ function checkResult() {
             answered +
             " kysymystä jäljellä.";
     }
+
+    tallennaSessionStorageen("keittiovalinePisteet", pisteet) // Tallentaa pisteet session storageen funktion avulla joka löytyy shared.js
 }
-tallennaSessionStorageen("keittiovalinePisteet", pisteet) // Tallentaa pisteet session storageen funktion avulla joka löytyy shared.js
+
