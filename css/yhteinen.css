@@ -86,13 +86,13 @@ footer a {
     display: block;
     clear: both;
     position: absolute;
-    bottom: -15px;
-    left: 20%;
+    bottom: 10px;
+    left: -10px;
     width: 10px;
     height: 20px;
     border-radius: 0 0 100% 0;
     background-color: #fff;
-    transform: rotate(15deg);
+    transform: rotate(60deg);
 }
 
 .ruutupaperi-bg {
