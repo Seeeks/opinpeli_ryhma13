@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    --bs-emphasis-color-rgb: 255, 250, 140;
 }
 
 @font-face {
