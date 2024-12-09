@@ -113,6 +113,12 @@ footer a {
     background-color: #fff;
     padding: 10px;
     box-shadow: 3px 5px 2px 0px rgba(78, 37, 17, 0.5);
+    min-width: 100px;
+    min-height: 80px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .esittely p {
