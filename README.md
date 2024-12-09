@@ -15,4 +15,4 @@ Sivusto tulee sisältämään seuraavat osat:
 - pääsivu
 - tietoja meistä -sivu
 - pistesivu
-- 5 uniikkia minipeliä (kauppareissu-muistipeli, yksikkömuunnos-peli, keittiövälineiden tunnistuspeli, järjestyspeli,triviapeli ja kaloripeli)
+- 6 uniikkia minipeliä (kauppareissu-muistipeli, yksikkömuunnos-peli, keittiövälineiden tunnistuspeli, järjestyspeli, triviapeli ja kaloripeli)
