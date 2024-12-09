@@ -197,59 +197,55 @@ function question5() {
 }
 
 function checkResult() {
-    //Määritetään kysymysten tarkistus painikkeet sekä lopputuloksen tulostuskenttä
+    // Määritetään kysymysten tarkistus painikkeet sekä lopputuloksen tulostuskenttä
     let check1 = document.getElementById("check-btn1");
     let check2 = document.getElementById("check-btn2");
     let check3 = document.getElementById("check-btn3");
     let check4 = document.getElementById("check-btn4");
     let check5 = document.getElementById("check-btn5");
     let finalInput = document.getElementById("printFinalResult");
-    //Tarkistetaan onko kaikki kysymykset tarkistettu, mikäli on, annetaan lopullinen palaute, muuten virheviesti
+
+    // Tarkistetaan onko kaikki kysymykset tarkistettu
     if (check1.disabled && check2.disabled && check3.disabled && check4.disabled && check5.disabled) {
+        let finalResult = "";
+
         if (points < 3) {
-            let finalResult = "Sait " + points + " / 5 pistettä" + "<br>" + "Parempi onni ensi kerralla!";
-            finalInput.innerHTML = finalResult;
-        }
-        if (points > 2) {
-            let finalResult = "Sait " + points + " / 5 pistettä" + "<br>" + "Hyvää työtä!";
-            finalInput.innerHTML = finalResult;
-        }
-        //Kutsutaan confetti funktio, mikäli tietovisasta saa täydet pisteet
-        if (points == 5) {
-            let finalResult = "Sait " + points + " / 5 pistettä" + "<br>" + "Erinomaista työtä!";
-            finalInput.innerHTML = finalResult;
-
-            // Seuraava koodi on otettu netistä lähde: https://dev.to/official_fire/creating-a-confetti-effect-in-5-minutes-16h3
-            // for starting the confetti
+            finalResult = "Sait " + points + " / 5 pistettä" + "<br>" + "Parempi onni ensi kerralla!";
+        } else if (points > 2 && points < 5) {
+            finalResult = "Sait " + points + " / 5 pistettä" + "<br>" + "Hyvää työtä!";
+        } else if (points == 5) {
+            finalResult = "Sait " + points + " / 5 pistettä" + "<br>" + "Erinomaista työtä!";
+            
+            // Confetti-efekti täydelliselle suoritukselle
             const start = () => {
-                setTimeout(function() {
-                    confetti.start();
-                }, 1000);
-                // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+                setTimeout(() => confetti.start(), 1000);
             };
-
-            //  for stopping the confetti
 
             const stop = () => {
-                setTimeout(function() {
-                    confetti.stop();
-                }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+                setTimeout(() => confetti.stop(), 5000);
             };
-            // after this here we are calling both the function so it works
+
             start();
             stop();
-
-            // if you dont want to make it stop and make it infinite you can just remove the stop function
         }
 
+        finalInput.innerHTML = finalResult;
+
+        // Tallennetaan pisteet session storageen
+        tallennaSessionStorageen("keittiovalinePisteet", points);
+
+        // Estetään lopputulos-nappia painamasta uudelleen
         document.getElementById("final-check-btn").disabled = true;
         document.getElementById("final-check-btn").style.backgroundColor = "#e9a452";
     } else {
+        // Näytetään virheviesti, jos kaikkia kysymyksiä ei ole tarkistettu
         finalInput.innerHTML =
-            "Vastaa ensin kaikkiin kysymyksiin!" +
-            " Sinulla on vielä " +
+            "Vastaa ensin kaikkiin kysymyksiin! " +
+            "Sinulla on vielä " +
             answered +
             " kysymystä jäljellä.";
     }
 }
-tallennaSessionStorageen("keittiovalinePisteet", pisteet) // Tallentaa pisteet session storageen funktion avulla joka löytyy shared.js
+
+
+tallennaSessionStorageen("keittiovalinePisteet", points) // Tallentaa pisteet session storageen funktion avulla joka löytyy shared.js
