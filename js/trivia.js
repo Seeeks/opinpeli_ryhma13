@@ -26,50 +26,50 @@ const questions = [
     }
   ];
   
-  let currentQuestionIndex = 0;
-  let score = 0;
-  let totalAnswered = 0;
+  let currentQuestionIndex = 0
+  let score = 0
+  let totalAnswered = 0
   
   function loadQuestion() {
-    const questionData = questions[currentQuestionIndex];
-    document.querySelector(".question").textContent = questionData.question;
+    const questionData = questions[currentQuestionIndex]
+    document.querySelector(".question").textContent = questionData.question
   
     questionData.options.forEach((option, index) => {
-      const button = document.getElementById(`opt${index + 1}`);
-      button.textContent = option;
-      button.onclick = () => handleAnswer(index);
-    });
+      const button = document.getElementById(`opt${index + 1}`)
+      button.textContent = option
+      button.onclick = () => handleAnswer(index)
+    })
   
-    document.getElementById("currentQuestion").textContent = currentQuestionIndex + 1;
-    document.getElementById("score").textContent = `${score}/${totalAnswered}`;
+    document.getElementById("currentQuestion").textContent = currentQuestionIndex + 1
+    document.getElementById("score").textContent = `${score}/${totalAnswered}`
   }
   
   function handleAnswer(selected) {
-    const questionData = questions[currentQuestionIndex];
+    const questionData = questions[currentQuestionIndex]
   
     totalAnswered++; // Lisää vastattujen kysymysten määrää
     if (selected === questionData.correct) {
-      score++; // Lisää pisteitä vain, jos vastaus on oikein
+      score++ // Lisää pisteitä vain, jos vastaus on oikein
       alert("Hienoa, se on oikein!");
     } else {
-      alert(`Väärin! Oikea vastaus oli: ${questionData.options[questionData.correct]}`);
+      alert(`Väärin! Oikea vastaus oli: ${questionData.options[questionData.correct]}`)
     }
   
-    currentQuestionIndex++;
+    currentQuestionIndex++
     if (currentQuestionIndex < questions.length) {
-      loadQuestion();  // Lataa seuraava kysymys
+      loadQuestion()  // Lataa seuraava kysymys
     } else {
-      alert(`Peli ohi! Kokonaisscore: ${score}/${questions.length}`);
-      resetGame();
+      alert(`Peli ohi! Kokonaisscore: ${score}/${questions.length}`)
+      resetGame()
     }
   }
   
   function resetGame() {
-    currentQuestionIndex = 0;
-    score = 0;
-    totalAnswered = 0;
-    loadQuestion();
+    currentQuestionIndex = 0
+    score = 0
+    totalAnswered = 0
+    loadQuestion()
   }
   
-  document.addEventListener("DOMContentLoaded", loadQuestion);
+  document.addEventListener("DOMContentLoaded", loadQuestion)
   
