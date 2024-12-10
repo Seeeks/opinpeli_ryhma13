@@ -149,3 +149,18 @@ footer a {
 .kokkikani-logo {
     width: 250px;
 }
+
+.blocklink {
+    border-radius: 2rem;
+    padding-top: 1rem;
+    color: #012774;
+    text-decoration: none;
+}
+
+.blocklink:hover {
+    background-color: #ffc45f;
+}
+
+.blocklink:hover img {
+    box-shadow: #fefff0 0px 0px 36px, #797f22 0px 0px 12px;
+}
