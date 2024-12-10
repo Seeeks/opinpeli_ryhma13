@@ -1,0 +1,9 @@
+#food-image {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    margin-top: 20px;
+    object-fit: cover;
+    background-color: black;  /* Taustan väri mustaksi */
+    border-radius: 8px;
+}

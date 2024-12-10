@@ -1,15 +1,15 @@
 // elintarvikkeet
 const foodItems = [
-    { name: "Omena", calories: 52 },
-    { name: "Banaani", calories: 89 },
-    { name: "Maito (1%)", calories: 42 },
-    { name: "Ruisleipä", calories: 220 },
-    { name: "Keitetty peruna", calories: 86 },
-    { name: "Kananmuna", calories: 155 },
-    { name: "Broilerinfilee (paistettu)", calories: 165 },
-    { name: "Lohi (paistettu)", calories: 206 },
-    { name: "Keitetty riisi", calories: 130 },
-    { name: "Juustohampurilainen", calories: 300 }
+    { name: "Omena", calories: 52, img: "kuvat/omena.png" },
+    { name: "Banaani", calories: 89, img: "kuvat/banaani.png"},
+    { name: "Maito (1%)", calories: 42, img: "kuvat/maito.png"},
+    { name: "Ruisleipä", calories: 220, img: "kuvat/ruisleipa.png"},
+    { name: "Keitetty peruna", calories: 86, img: "kuvat/peruna.png" },
+    { name: "Kananmuna", calories: 155, img: "kuvat/munat.png" },
+    { name: "Broilerinfilee (paistettu)", calories: 165,  img: "kuvat/broilerinfilee.png" },
+    { name: "Lohi (paistettu)", calories: 206,  img: "kuvat/lohifile.png" },
+    { name: "Keitetty riisi", calories: 130,  img: "kuvat/riisi.png" },
+    { name: "Juustohampurilainen", calories: 300,  img: "kuvat/juustohampurilainen.png" }
 ];
 
 let currentFood = {};
@@ -51,6 +51,11 @@ function newGame() {
     usedFoodItems.push(currentFood.name);
 
     foodItemElement.textContent = currentFood.name;
+
+    // Näytä kuva
+    const foodImageElement = document.getElementById('food-image');
+    foodImageElement.src = currentFood.img;  // Päivittää kuvan lähteen
+    foodImageElement.alt = currentFood.name;  // Kuvan alt-teksti
 }
 
 function checkGuess() {
