@@ -1,0 +1,48 @@
+.question {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.question-box {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.options button {
+    font-size: 1em;
+    padding: 10px;
+    border: 2px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.options button:hover {
+    background-color: #4490a3;
+}
+
+.status {
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+.puhekupla {
+    width: 85%;
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.options button {
+    flex: 1 1 calc(50% - 10px); /* Skaalautuu puolikkaaksi rivillä */
+    max-width: 100%; /* Estää liian suuren koon */
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid rgb(42, 37, 37);
+    text-align: center;
+}

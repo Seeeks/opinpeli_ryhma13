@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="fi" class="h-100">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/yhteinen.css">
-    <title>Köksäpeli</title>
+    <link rel="stylesheet" href="./css/trivia.css">
 </head>
+
 <body class="d-flex flex-column h-100">
-    
+     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-md" aria-lable="Navigation">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.html">Köksäpeli</a>
@@ -32,45 +34,60 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./pisteet.html">Pisteet</a>
-                        
+                     
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <main class="flex-shrink-0 p-3">
-        <div class="d-flex flex-row p-3">
-            <img src="./kuvat/kokkikani.png" alt="Kokki-Kani" class="kokkikani-logo">
-            <div class="puhekupla-vasen h-50">
-                Katsotaanpas, miten olet pärjännyt.
+
+<!---- PELI ---->
+    <main class="container my-4">
+        <h1 class="justify-content-start">Triviapeli</h1> 
+        <p class="justify-content-start">Jaikkkkss, visaisia trivioita vuorossa!</p><br>
+    
+        <div class="row">
+            
+            <div class="col-md-4 mb-3">
+                <div class="puhekupla">Valitse mielestäsi paras vastaus kysymyksen alta. <br> Peli kertoo, menikö oikein!</div>
             </div>
+            
+            <div class="col-md-8">
+                <div class="question-box bg-white p-4 rounded shadow mb-3">
+                    <p class="question"></p>
+                </div>
+
+                <div class="options d-flex gap-2">
+                    <button id="opt1" class="btn btn-light flex-grow-1"></button>
+                    <button id="opt2" class="btn btn-light flex-grow-1"></button>
+                    <button id="opt3" class="btn btn-light flex-grow-1"></button>
+                    <button id="opt4" class="btn btn-light flex-grow-1"></button>
+                </div>
+
+                <div class="status mt-3 text-center">
+                    <div>Kysymys meneillään: <span id="currentQuestion">1</span>/5</div>
+                    <div>Pelatut pisteet: <span id="score"></span></div>
+                </div>
+            </div>
+
         </div>
-        
-        <h2 class="text-center mb-3">Yksittäisten pelien pisteet</h2>
-        <div class="d-flex flex-row flex-wrap justify-content-center">
-            <div class="esittely"><output id="muistiPisteet" class="ympyra fs-3">--</output><p>Kauppareissu-muistipeli</p></div>
-            <div class="esittely"><output id="yksikkoPisteet" class="ympyra fs-3">--</output><p>Yksikkömuunnos</p></div>
-            <div class="esittely"><output id="valinePisteet" class="ympyra fs-3">--</output><p>Keittiövälinetunnistus</p></div>
-            <div class="esittely"><output id="jarjestysPisteet" class="ympyra fs-3">--</output><p>Järjestyspeli</p></div>
-            <div class="esittely"><output id="triviaPisteet" class="ympyra fs-3">--</output><p>Trivia</p></div>
-            <div class="esittely"><output id="kaloriPisteet" class="ympyra fs-3">--</output><p>Kalorit</p></div>
-        </div>
-        <h2 class="text-center mb-3">Yhteispisteet</h2>
-        <div class="d-flex flex-row justify-content-center">
-            <div class="esittely"><output id="yhtPisteet" class="ympyra fs-1">--</output><p>Yhteispisteet</p></div>
-        </div>
+
     </main>
+    
+<!---- FOOTER ---->
+
+
     <footer class="footer mt-auto">
         <div class="container-fluid">
-        <a href="./tietoja.html">
+            <a href="./tietoja.html">
             Tietoja meistä
-        </a>
-    </div>
-        </footer>
+            </a>
+        </div>
     </footer>
 
-</body>
+</body>  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="./js/shared.js"></script>
-<script src="./js/pisteet.js"></script>
+<script src="./js/trivia.js"></script>
+
 </html>
