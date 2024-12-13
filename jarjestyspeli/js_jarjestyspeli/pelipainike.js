@@ -3,8 +3,8 @@ let kierros = 1;
 
 const uusipeli = () => {
     
-       
-    const peli= pelinKasittely(kierros);
+    
+    let peli= pelinKasittely(kierros);
     kierros ++;
 
     /*Kirjasta Clean code in Javascript */
@@ -15,6 +15,8 @@ const uusipeli = () => {
 
         const li =ul.appendChild(document.createElement('li'));
         const tarkistus = li.appendChild(document.createElement("div"));
+        tarkistus.classList.add("pelaajan_vastaus")
+        tarkistus.id = "pelaajan_vastaus"
         tarkistus.textContent = item;
 
     });
@@ -33,13 +35,14 @@ function piilotaTarkistus() {
 }
 
 function pelinKasittely(luku) {
-
+    console.log("aaa")
     if (luku ==1) {
+        
         let arvo = 0;
         do {
             arvo = Math.random()*10
         }
-        while (arvo < 0 || arvo > 3);
+        while (arvo < 1|| arvo > 3);
 
         arvo = arvo.toFixed(0);
         document.getElementById('mika_peli').innerHTML= "Kierros 1, Peli "+arvo;
@@ -50,11 +53,11 @@ function pelinKasittely(luku) {
             break;
         
             case 2:
-                return ["b","c","d","a"]
+                return ["b","b","c","a"]
             break;
         
             case 3:
-                return ["c","d","a","b"]
+                return ["a","d","a","b"]
             break;      
 
         }
@@ -68,10 +71,10 @@ function pelinKasittely(luku) {
         do {
             arvo = Math.random()*10
         }
-        while (arvo < 0 || arvo > 3);
+        while (arvo < 1 || arvo > 3);
 
         arvo = arvo.toFixed(0);
-        document.getElementById('mika_peli').innerHTML= "Kierros 2, Peli 1";
+        document.getElementById('mika_peli').innerHTML= "Kierros 2, Peli "+arvo;
         
         switch (parseInt(arvo)) {
             case 1:
@@ -87,6 +90,7 @@ function pelinKasittely(luku) {
             break;      
 
         } 
+        return ["a"]
     }
 
 }
