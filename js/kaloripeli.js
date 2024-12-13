@@ -87,7 +87,8 @@ function checkGuess() {
     if (round < maxRounds) {
         playAgainButton.style.display = "inline-block";
     } else {
-        endGame();
+        playAgainButton.style.display = "none";
+        setTimeout(endGame, 5000);
     }
 }
 
