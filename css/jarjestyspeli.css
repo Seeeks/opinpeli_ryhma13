@@ -13,3 +13,11 @@
     flex-direction: row;
 
 }
+
+.pelaajan_vastaus_div {
+    background-color:lightblue;
+}
+
+.pelaajan_vastaus {
+    background-color:lightblue;
+}

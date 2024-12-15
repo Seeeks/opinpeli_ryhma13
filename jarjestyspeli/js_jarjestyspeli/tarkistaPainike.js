@@ -1,32 +1,6 @@
 
 const tarkista = () =>{
    //https://www.w3schools.com/js/js_htmldom_nodes.asp//
-/*
-    const tarkistus = document.createElement("div");
-    tarkistus.classList.add("peliruutu");
-    tarkistus.id = "tarkistus";
-    const sisus = document.createTextNode("tarkistus")
-    tarkistus.append(sisus);
-
-
-    const peli= pelinTarkistus();
-
-    /*Kirjasta Clean code in Javascript */
-   /* const ul = document.createElement('ul');
-    ul.id = "tarkistus_lista";
-
-    peli.forEach(item => {
-
-        const li =ul.appendChild(document.createElement('li'));
-        const tarkistus = li.appendChild(document.createElement("div"));
-        tarkistus.classList.add("tarkista_oikea")
-        tarkistus.id = "tarkista_oikea"
-        tarkistus.textContent = item;
-
-    });
-    tarkistus.append(ul);
-
-    document.getElementById("pelin_hallinta").appendChild(tarkistus);*/
     document.getElementById("peli_tarkista").disabled = true;
     document.getElementById("peli_hallitse").disabled = false;
 
@@ -46,17 +20,23 @@ function pelinTarkistus() {
 
 function tarkistaja () {
     /*Haetaan pelaan vastaus listana*/
-    let pelaajan_vastaus_ul = document.getElementById("pelaajan_lista");
-    let pelaajan_vastaus = pelaajan_vastaus_ul.querySelectorAll(".pelaajan_vastaus");
-    let pelaajan_vastaus_lista = [];
-
-    console.log(pelaajan_vastaus);
     
+    let pelaajan_vastaus = document.querySelectorAll("select");
+    let pelaajan_vastaus_lista = [];
+   
     pelaajan_vastaus.forEach(item => {
-        console.log(item.innerHTML);
-        pelaajan_vastaus_lista.push(item.innerHTML);
+        pelaajan_vastaus_lista.push(item.value);
     });
     
+    let pelaajan_vastaus_teksti = document.querySelectorAll(".pelaajan_vastaus");
+    let pelaajan_teksti_lista = [];
+
+    pelaajan_vastaus_teksti.forEach(item => {
+        pelaajan_teksti_lista.push(item.innerHTML);
+    });
+
+    //toimii tähän asti
+
     /*Tarkistetaan vastaako lista oikeaa*/
     
     let peli = pelinTarkistus();
@@ -70,6 +50,7 @@ function tarkistaja () {
     const ul = document.createElement('ul');
     ul.id = "tarkistus_lista";
     
+    /*tästä eteenpäin tarkistus */
     let indeksi = 0;
 
     peli.forEach(item => {
@@ -79,15 +60,30 @@ function tarkistaja () {
         tarkistus.classList.add("tarkista_oikea")
         tarkistus.id = "tarkista_oikea"
         tarkistus.textContent = item;
-        if(item == pelaajan_vastaus_lista[indeksi]) {
-            tarkistus.style.backgroundColor = "green";
-        }
-        else {
-            tarkistus.style.backgroundColor = "red";
-        }
+        
+
+        pelaajan_teksti_lista.forEach(item2 => {
+           
+            if (item2 == tarkistus.textContent){
+                let teksti_indeksi = pelaajan_teksti_lista.indexOf(item2);
+                let vastaus_indeksi = pelaajan_vastaus_lista[teksti_indeksi];
+
+                console.log(indeksi);
+                console.log(vastaus_indeksi);
+
+                if(indeksi == vastaus_indeksi-1) {
+                    tarkistus.style.backgroundColor = "green";
+                }
+                else {
+                    tarkistus.style.backgroundColor = "red";
+                }
+            }
+        });
+
         indeksi++;
     });
     tarkistus.append(ul);
 
     document.getElementById("pelin_hallinta").appendChild(tarkistus);
 }
+

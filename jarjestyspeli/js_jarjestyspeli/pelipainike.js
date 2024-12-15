@@ -5,27 +5,83 @@ const uusipeli = () => {
     
     
     let peli= pelinKasittely(kierros);
-    kierros ++;
+    
 
     /*Kirjasta Clean code in Javascript */
     const ul = document.createElement('ul');
     ul.id = "pelaajan_lista";
 
+    document.getElementById('peliruutu').append(ul);
+    let erottaja = 1;
+
     peli.forEach(item => {
 
         const li =ul.appendChild(document.createElement('li'));
         const tarkistus = li.appendChild(document.createElement("div"));
-        tarkistus.classList.add("pelaajan_vastaus")
-        tarkistus.id = "pelaajan_vastaus"
-        tarkistus.textContent = item;
+        tarkistus.classList.add("pelaajan_vastaus_div")
 
+        const pala = tarkistus.appendChild(document.createElement("div"));
+        pala.classList.add("pelaajan_vastaus");
+        pala.textContent = item;
+        
+        
+
+        const alasveto = tarkistus.appendChild(document.createElement("div"));
+        const valittavat = alasveto.appendChild(document.createElement("select"));
+        valittavat.id = "select"+erottaja;
+        let arvo = valittavat.appendChild(document.createElement("option"));
+        arvo.textContent = "1";
+        arvo = valittavat.appendChild(document.createElement("option"));
+        arvo.textContent = "2";
+        arvo = valittavat.appendChild(document.createElement("option"));
+        arvo.textContent = "3";
+        arvo = valittavat.appendChild(document.createElement("option"));
+        arvo.textContent = "4";
+        if (kierros > 1){
+            arvo = valittavat.appendChild(document.createElement("option"));
+            arvo.textContent = "5";
+            arvo = valittavat.appendChild(document.createElement("option"));
+            arvo.textContent = "6";
+        }
+        arvo = valittavat.appendChild(document.createElement("option"));
+        arvo.selected = "selected";
+        arvo.textContent = "Valitse";
+        erottaja++;
     });
-    
-    document.getElementById('peliruutu').append(ul);
+    kierros ++;
 
     document.getElementById("peli_hallitse").disabled = true;
     document.getElementById("peli_hallitse").innerHTML = "Pelaa, kierros 2"
     document.getElementById("peli_tarkista").disabled = false;
+
+}
+
+
+function lisaaValikko(divin_id, kierros, erottaja) {
+    //https://www.w3schools.com/howto/howto_js_cascading_dropdown.asp
+    const tarkistus = document.getElementById(divin_id);
+
+    const alasveto = tarkistus.appendChild(document.createElement("div"));
+    const valittavat = alasveto.appendChild(document.createElement("select"));
+    valittavat.id = "select"+erottaja;
+    let arvo = valittavat.appendChild(document.createElement("option"));
+    arvo.textContent = "1";
+    arvo = valittavat.appendChild(document.createElement("option"));
+    arvo.textContent = "2";
+    arvo = valittavat.appendChild(document.createElement("option"));
+    arvo.textContent = "3";
+    arvo = valittavat.appendChild(document.createElement("option"));
+    arvo.textContent = "4";
+    if (kierros > 1){
+        arvo = valittavat.appendChild(document.createElement("option"));
+        arvo.textContent = "5";
+        arvo = valittavat.appendChild(document.createElement("option"));
+        arvo.textContent = "6";
+    }
+    arvo = valittavat.appendChild(document.createElement("option"));
+    arvo.selected = "selected";
+    arvo.textContent = "Valitse";
+    
 
 }
 
@@ -35,7 +91,6 @@ function piilotaTarkistus() {
 }
 
 function pelinKasittely(luku) {
-    console.log("aaa")
     if (luku ==1) {
         
         let arvo = 0;
