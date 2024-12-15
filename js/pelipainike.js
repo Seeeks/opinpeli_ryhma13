@@ -47,14 +47,22 @@ const uusipeli = () => {
         arvo.textContent = "Valitse";
         erottaja++;
     });
-    kierros ++;
-
     document.getElementById("peli_hallitse").disabled = true;
     document.getElementById("peli_hallitse").innerHTML = "Pelaa, kierros 2"
     document.getElementById("peli_tarkista").disabled = false;
     }
-   if(kierros > 2) {
+
+    kierros ++;
+    
+    if(kierros == 3) {
         document.getElementById("peli_hallitse").innerHTML = "Uusipeli";
+    }
+    
+    if(kierros == 4) {
+        document.getElementById("peli_hallitse").innerHTML = "Pelaa, kierros 1";
+        document.getElementById("jarjestyspuhekupla").innerHTML ="Voi minua nakkisormea! Laitoin vahingossa reseptit pesukoneeseen kokkiveitsien kanssa ja reseptit pilkkoutuivat uudelleen"
+        piilotaTarkistus();
+        kierros = 1;
     }
     
 }

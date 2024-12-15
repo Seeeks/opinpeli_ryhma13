@@ -11,7 +11,6 @@
 .pelin_hallinta {
     display:flex;
     flex-direction: row;
-
 }
 
 .pelaajan_vastaus_div {
@@ -20,4 +19,9 @@
 
 .pelaajan_vastaus {
     background-color:lightblue;
+}
+
+.jarjestysKani {
+    width: 120px;
+    height: auto;
 }
