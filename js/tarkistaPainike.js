@@ -1,12 +1,14 @@
 let kokonaispisteet = 0;
 
-
 const tarkista = () =>{
    //https://www.w3schools.com/js/js_htmldom_nodes.asp//
     document.getElementById("peli_tarkista").disabled = true;
     document.getElementById("peli_hallitse").disabled = false;
 
+    
     tarkistaja();
+    tallennaSessionStorageen("jarjestysPisteet", kokonaispisteet)
+ 
 }
 
 function pelinTarkistus() {
@@ -19,7 +21,7 @@ function pelinTarkistus() {
         return ["a","b","c","d","e","f"]
         } 
 }
-
+ 
 function tarkistaja () {
     /*Haetaan pelaan vastaus listana*/
     
