@@ -5,7 +5,7 @@ const questions = [
     correct: 2
   },
   {
-    question: "Mikä sisältää eniten kuitua?",
+    question: "Mikä näistä sisältää eniten kuitua?",
     options: ["Leipä", "Riisi", "Pavut", "Peruna"],
     correct: 2
   },
@@ -15,12 +15,12 @@ const questions = [
     correct: 1
   },
   {
-    question: "Mikä ruoka sisältää paljon rautaa?",
+    question: "Mikä seuraavista sisältää paljon rautaa?",
     options: ["Pinaatti", "Riisi", "Pasta", "Jogurtti"],
     correct: 0
   },
   {
-    question: "Mikä on parasta aamupalaksi?",
+    question: "Mikä näistä vaihtoehdoista on parasta aamupalaksi?",
     options: ["Suklaapatukka", "Kananmuna", "Kahvi", "Perunalastut"],
     correct: 1
   }
@@ -71,8 +71,21 @@ function endGame() {
   triviaContainer.innerHTML = `
     <div>Peli päättyi! Kokonaispisteet: <strong>${score}/${questions.length}</strong></div>
   `
-  // Pelaa uudelleen painike
+  // pelaa uudelleen painike
   document.getElementById("restartButton").classList.remove("d-none")
+}
+
+function resetGame() {
+  currentQuestionIndex = 0
+  score = 0
+
+  const feedbackElement = document.getElementById("feedback")
+  feedbackElement.innerHTML = ""
+
+  loadQuestion()
+
+  document.getElementById("score").textContent = `${score}/${questions.length}`
+  document.getElementById("restartButton").classList.add("d-none")
 }
 
 document.getElementById("restartButton").addEventListener("click", () => {
