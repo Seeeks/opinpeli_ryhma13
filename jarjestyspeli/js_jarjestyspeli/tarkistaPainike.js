@@ -1,3 +1,5 @@
+let kokonaispisteet = 0;
+
 
 const tarkista = () =>{
    //https://www.w3schools.com/js/js_htmldom_nodes.asp//
@@ -68,11 +70,9 @@ function tarkistaja () {
                 let teksti_indeksi = pelaajan_teksti_lista.indexOf(item2);
                 let vastaus_indeksi = pelaajan_vastaus_lista[teksti_indeksi];
 
-                console.log(indeksi);
-                console.log(vastaus_indeksi);
-
                 if(indeksi == vastaus_indeksi-1) {
                     tarkistus.style.backgroundColor = "green";
+                    kokonaispisteet++;
                 }
                 else {
                     tarkistus.style.backgroundColor = "red";
@@ -82,8 +82,11 @@ function tarkistaja () {
 
         indeksi++;
     });
-    tarkistus.append(ul);
 
+    tarkistus.append(ul);
     document.getElementById("pelin_hallinta").appendChild(tarkistus);
+
+    document.getElementById("kokonaispisteet").innerHTML="Kokonaispisteesi: " + kokonaispisteet;
+
 }
 
