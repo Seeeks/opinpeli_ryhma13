@@ -42,18 +42,19 @@ function loadQuestion() {
   document.getElementById("currentQuestion").textContent = currentQuestionIndex + 1
   document.getElementById("score").textContent =  `${score}/${questions.length}`
 }
-  
+
 function handleAnswer(selected) {
-  const questionData = questions[currentQuestionIndex];
+  const questionData = questions[currentQuestionIndex]
+  const feedbackElement = document.getElementById("feedback")
 
   if (selected === questionData.correct) {
     score++;
-    alert("Hienoa, se on oikein!");
+    feedbackElement.innerHTML = "<p style='color: green;'>Hienoa, se on oikein!</p>"
   } else {
-    alert(`Väärin! Oikea vastaus oli: ${questionData.options[questionData.correct]}`);
+    feedbackElement.innerHTML = `<p style='color: red;'>Väärin! Oikea vastaus oli: ${questionData.options[questionData.correct]}</p>`
   }
 
-  currentQuestionIndex++;
+  currentQuestionIndex++
   if (currentQuestionIndex < questions.length) {
     loadQuestion()
   } else {
@@ -62,25 +63,21 @@ function handleAnswer(selected) {
 }
 
 function endGame() {
-   // Tallennetaan pisteet session storageen
+   // pisteet session storageen tallennus
   sessionStorage.setItem("triviaPisteet", score)
 
-  // Päivitetään pisteet näkyville
+  // pisteet näkyville
   const triviaContainer = document.querySelector(".status")
   triviaContainer.innerHTML = `
-    <div>Kysymys meneillään: ${questions.length}/${questions.length}</div>
-    <div>Kokonaisscore: <strong>${score}/${questions.length}</strong></div>
+    <div>Peli päättyi! Kokonaispisteet: <strong>${score}/${questions.length}</strong></div>
   `
-
-  // Näytetään "Pelaa uudelleen" -painike
+  // Pelaa uudelleen painike
   document.getElementById("restartButton").classList.remove("d-none")
 }
 
 document.getElementById("restartButton").addEventListener("click", () => {
   resetGame()
-  document.getElementById("restartButton").classList.add("d-none") // Piilotetaan painike uudelleen
+  document.getElementById("restartButton").classList.add("d-none") // painike piiloon
 })
-
-
 
 document.addEventListener("DOMContentLoaded", loadQuestion)
