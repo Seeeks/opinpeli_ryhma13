@@ -27,7 +27,7 @@
                             <li><a class="dropdown-item" href="./muistipeli.html">Muistipeli</a></li>
                             <li><a class="dropdown-item" href="./yksikkomuunnos.html">Yksikkömuunnos</a></li>
                             <li><a class="dropdown-item" href="./keittiovaline.html">Keittiöväline</a></li>
-                            <li><a class="dropdown-item" href="./jarjestyspeli/jarjestyspeli.html">Järjestyspeli</a></li>
+                            <li><a class="dropdown-item" href="./jarjestyspeli.html">Järjestyspeli</a></li>
                             <li><a class="dropdown-item" href="./trivia.html">Trivia</a></li>
                             <li><a class="dropdown-item" href="./kaloripeli.html">Kaloripeli</a></li>
                         </ul>
@@ -64,9 +64,16 @@
                     <button id="opt4" class="btn btn-light flex-grow-1"></button>
                 </div>
 
+                <div id="feedback" class="mt-3 text-center"></div> <!-- Lisätty feedback-elementti -->
+
+
                 <div class="status mt-3 text-center">
                     <div>Kysymys meneillään: <span id="currentQuestion">1</span>/5</div>
                     <div>Pelatut pisteet: <span id="score"></span></div>
+                </div>
+                <!-- Pelaa uudelleen -painike -->
+                <div class="text-center mt-4">
+                    <button id="restartButton" class="btn btn-primary d-none">Pelaa uudelleen</button>
                 </div>
             </div>
 

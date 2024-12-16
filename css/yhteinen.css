@@ -164,3 +164,7 @@ footer a {
 .blocklink:hover img {
     box-shadow: #fefff0 0px 0px 36px, #797f22 0px 0px 12px;
 }
+
+.dropdown-menu[data-bs-popper] {
+    left: -30px;/* This is here so that the dropdown menu doesn't go over the edge with long words.*/
+}
